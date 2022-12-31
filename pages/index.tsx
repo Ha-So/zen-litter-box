@@ -1,7 +1,9 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.scss";
+import stylesNav from "../styles/Navbar.module.scss";
 import Sheet from "./components/sheet";
 import Intro from "./components/intro";
+import Navbar from "./components/navbar";
 
 export default function Home() {
   return (
@@ -12,6 +14,8 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Navbar />
+      <div className={stylesNav.line} />
       <div className={styles.sheet_container}>
         <Intro />
         <Sheet />
