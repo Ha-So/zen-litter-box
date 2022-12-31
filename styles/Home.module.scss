@@ -41,7 +41,7 @@
     position: relative;
     scroll-snap-align: center;
     overflow: hidden;
-    padding: 40px;
+    padding: 70px 40px 40px 40px;
     box-shadow: 0 30px 40px rgba(0,0,0,.1);
 }
 
@@ -74,7 +74,7 @@
     }
 }
 
-.paragraph_breaks_intro p::after {
+.paragraph_breaks_intro span::after {
     content: "";
     width: 10px;
     height: 20px;
