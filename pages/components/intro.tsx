@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function sheet() {
   return (
-    <div className={styles.sheet_intro}>
+    <div className={styles.sheet_body}>
       {" "}
       <div className="intro">
         <motion.h1
@@ -17,14 +17,11 @@ export default function sheet() {
         </motion.h1>
         <br />
         <p className={styles.paragraph_breaks_intro}>
-          My name is Haris. This is my zen litter box. A collection of thoughts,
-          things I learned that should be shared and other random assortments.
+          My name is Haris. This is my zen litter box. A collection of thoughts
+          and things I learned that should be shared.
           <span>
             <br />
-            If you can't tell by the name, we don't take ourselves too seriously
-            here.
-            <br />
-            Welcome.
+            Feel free to dig around. Welcome.
           </span>
         </p>
       </div>

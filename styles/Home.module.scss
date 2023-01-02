@@ -1,62 +1,60 @@
-.sheet_container {
-    background-color: #F5F5F5;
-    position: relative;
-    overflow-y: auto;
-    overscroll-behavior-y: contain;
-    scroll-snap-type: y mandatory;
-    height: 100vh;
-    width: 100%;
-    -ms-overflow-style: none;
-    /* Internet Explorer 10+ */
-    scrollbar-width: none;
-    /* Firefox */
-    &::-webkit-scrollbar {
-        display: none;
+.sheet {
+    &_container {
+        background-color: #F5F5F5;
+        position: relative;
+        overflow-y: auto;
+        overscroll-behavior-y: contain;
+        scroll-snap-type: y mandatory;
+        height: 100vh;
+        width: 100%;
+        -ms-overflow-style: none;
+        /* Internet Explorer 10+ */
+        scrollbar-width: none;
+    
+        /* Firefox */
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    
+        justify-content: center;
+        align-items: center;
     }
-    justify-content: center;
-    align-items: center;
-}
 
-.sheet_body {
-    font-family: sans-serif;
-    background-color: #F5F5F5;
-    height: 100vh;
-    width: 80vw;
-    margin: 0 auto;
-    display: flex;
-    position: relative;
-    scroll-snap-align: center;
-    overflow: hidden;
-    padding: 40px;
-    box-shadow: 0 30px 40px rgba(0, 0, 0, .1);
-}
+    &_body {
+        font-family: sans-serif;
+        background-color: #F5F5F5;
+        height: 100vh;
+        width: 100vw;
+        margin: 0 auto;
+        display: flex;
+        position: relative;
+        scroll-snap-align: center;
+        overflow: hidden;
+        padding: 70px 40px 40px 40px;
+        box-shadow: 0 30px 40px rgba(0, 0, 0, .1);
 
-.sheet_intro {
-    font-family: sans-serif;
-    background-color: #F5F5F5;
-    height: 100vh;
-    width: 80vw;
-    margin: 0 auto;
-    display: flex;
-    position: relative;
-    scroll-snap-align: center;
-    overflow: hidden;
-    padding: 70px 40px 40px 40px;
-    box-shadow: 0 30px 40px rgba(0,0,0,.1);
-}
+        /* Medium devices (landscape tablets, 768px and up) */
+            @media only screen and (min-width: 768px) {
+               width: 80vw;
+            }
+    }
 
-.sheet_background {
-    background-color: red;
-    overflow: hidden;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    /* Internet Explorer 10+ */
-    scrollbar-width: none;
-    /* Firefox */
-    &::-webkit-scrollbar {
-        display: none;
+    &_background {
+        background-color: red;
+        overflow: hidden;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        /* Internet Explorer 10+ */
+        scrollbar-width: none;
+
+        /* Firefox */
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
 }
+
+
 
 .paragraph_breaks_intro {
     -webkit-hyphens: auto;

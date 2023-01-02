@@ -14,19 +14,48 @@
     margin-left: auto;
     margin-right: auto;
     position: absolute;
+
+    &_icons {
+        display: flex;
+        margin-left: auto;
+        padding-right: 40px;
+        gap: 30px;
+        padding-bottom: 0px2;
+
+        &_hover {
+            cursor: pointer;
+        }
+    }
 }
 
-.navbar_icons {
+.navbar_mobile_container {
     display: flex;
+    top: 0;
+    z-index: 10;
+    background-color: #F5F5F5;
+    width: 100%;
+    padding-top: 10px;
+    padding-left: 40px;
+
+    // box-shadow: 0 30px 40px rgba(0, 0, 0, .1);
+    width: 80vw;
+    left: 0;
+    right: 0;
     margin-left: auto;
-    padding-right: 40px;
-    gap: 30px;
-    padding-bottom: 0px;
+    margin-right: auto;
+    position: absolute;
 
-    &_hover {
-        cursor: pointer;
+    &_icons {
+        display: flex;
+        margin-left: auto;
+        padding-right: 40px;
+        gap: 30px;
+        padding-bottom: 0px;
+
+        &_hover {
+            cursor: pointer;
+        }
     }
-
 }
 
 
