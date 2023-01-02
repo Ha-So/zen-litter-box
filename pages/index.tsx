@@ -1,11 +1,29 @@
 import Head from "next/head";
+import { useEffect, useState } from "react";
 import styles from "../styles/Home.module.scss";
 import stylesNav from "../styles/Navbar.module.scss";
 import Sheet from "./components/sheet";
 import Intro from "./components/intro";
-import Navbar from "./components/navbar";
+import NavbarDesktop from "./components/navbar-desktop";
+import NavbarMobile from "./components/navbar-mobile";
 
 export default function Home() {
+  const [width, setWidth] = useState(0);
+
+  useEffect(() => {
+    function handleResize() {
+      setWidth(window.innerWidth);
+    }
+
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [setWidth]);
+
   return (
     <div className={styles.sheet_background}>
       <Head>
@@ -14,7 +32,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Navbar />
+      {width > 768 ? <NavbarDesktop /> : <NavbarMobile />}
       <div className={stylesNav.line} />
       <div className={styles.sheet_container}>
         <Intro />
