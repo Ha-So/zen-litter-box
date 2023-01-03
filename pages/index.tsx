@@ -4,8 +4,7 @@ import styles from "../styles/Home.module.scss";
 import stylesNav from "../styles/Navbar.module.scss";
 import Sheet from "./components/sheet";
 import Intro from "./components/intro";
-import NavbarDesktop from "./components/navbar-desktop";
-import NavbarMobile from "./components/navbar-mobile";
+import Navbar from "./components/navbar";
 
 export default function Home() {
   const [width, setWidth] = useState(0);
@@ -32,8 +31,8 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {width > 768 ? <NavbarDesktop /> : <NavbarMobile />}
-      <div className={stylesNav.line} />
+      {<Navbar width={width} />}
+      {/* <div className={stylesNav.line} /> */}
       <div className={styles.sheet_container}>
         <Intro />
         <Sheet />
