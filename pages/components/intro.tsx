@@ -15,13 +15,13 @@ export default function sheet() {
         >
           Hi.
         </motion.h1>
-        <br />
+        <h2 className="intro-header">
+          My name is Haris. <br /> And this is my zen litter box.
+        </h2>
         <p className={styles.paragraph_breaks_intro}>
-          My name is Haris. This is my zen litter box. A collection of thoughts
-          and things I learned that should be shared.
+          A collection of thoughts and things I learned that should be shared.
           <span>
-            <br />
-            Feel free to dig around. Welcome.
+            <br />A digital garden. Feel free to dig around.{" "}
           </span>
         </p>
       </div>

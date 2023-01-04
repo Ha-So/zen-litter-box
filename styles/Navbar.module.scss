@@ -1,49 +1,21 @@
+
 .navbar_container {
-    display: flex;
-    top: 0;
-    z-index: 10;
-    background-color: #F5F5F5;
-    width: 100%;
-    padding-top: 10px;
-    padding-left: 40px;
-   
-    // box-shadow: 0 30px 40px rgba(0, 0, 0, .1);
-    width: 80vw;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    position: absolute;
 
-    &_icons {
+    &_row {
         display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        background-color: var(--bkg-color);
+        width: 80vw;
+        height: 80px;
+        top: 0;
+        left: 0;
+        right: 0;
         margin-left: auto;
-        padding-right: 40px;
-        gap: 30px;
-        padding-bottom: 0px2;
-
-        &_hover {
-            cursor: pointer;
-        }
+        margin-right: auto;
+        position: absolute;
+        z-index: 10;
     }
-}
-
-.navbar_mobile_container {
-    display: flex;
-    top: 0;
-    z-index: 10;
-    background-color: #F5F5F5;
-    width: 100%;
-    padding-top: 10px;
-    padding-left: 40px;
-
-    // box-shadow: 0 30px 40px rgba(0, 0, 0, .1);
-    width: 80vw;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    position: absolute;
 
     &_icons {
         display: flex;
@@ -51,13 +23,28 @@
         padding-right: 40px;
         gap: 30px;
         padding-bottom: 0px;
-
+        
         &_hover {
-            cursor: pointer;
+         cursor: pointer;
+        }
+    }
+
+    &_column_title {
+        margin-right: auto;
+        padding-left: 40px;
+    }
+
+    &_column_icons {
+        display: flex;
+        gap: 20px;
+        margin-left: auto;
+        padding-right: 40px;
+        padding-top: 30px;
+        @media (max-width: 768px) {
+            margin: 0 auto;
         }
     }
 }
-
 
 .line {
     margin-top: 10px;

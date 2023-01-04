@@ -1,6 +1,8 @@
+
 .sheet {
     &_container {
-        background-color: #F5F5F5;
+        background-color: var(--bkg-color-container);
+        color: var(--text-color);
         position: relative;
         overflow-y: auto;
         overscroll-behavior-y: contain;
@@ -22,7 +24,8 @@
 
     &_body {
         font-family: sans-serif;
-        background-color: #F5F5F5;
+        background-color: var(--bkg-color);
+        color: var(--text-color);
         height: 100vh;
         width: 100vw;
         margin: 0 auto;
@@ -31,7 +34,7 @@
         scroll-snap-align: center;
         overflow: hidden;
         padding: 70px 40px 40px 40px;
-        box-shadow: 0 30px 40px rgba(0, 0, 0, .1);
+        box-shadow: var(--box-shadow);
 
         /* Medium devices (landscape tablets, 768px and up) */
             @media only screen and (min-width: 768px) {
@@ -40,7 +43,8 @@
     }
 
     &_background {
-        background-color: red;
+        background-color: var(--bkg-color);
+        color: var(--text-color);
         overflow: hidden;
         scrollbar-width: none;
         -ms-overflow-style: none;
