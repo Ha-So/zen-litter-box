@@ -32,6 +32,7 @@
     &_column_title {
         margin-right: auto;
         padding-left: 40px;
+        color: var(--bkg-color-container);
     }
 
     &_column_icons {
@@ -60,6 +61,6 @@
     height: 1px;
     border-color: rgb(0, 0, 0);
     border: 1px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    background-image: var(--line-gradient);
 
 }

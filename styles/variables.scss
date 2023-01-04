@@ -7,12 +7,15 @@ $mobile-breakpoint: 44.9375rem; // 719px
   --text-color-light: #000000;
   --bkg-color-light: #F7F5EB;
   --bkg-color-container-light: #A0C3D2;
-  --box-shadow-light: 0 30px 40px rgba(0, 0, 0, 0.697);
+  --box-shadow-light: -1px 25px 13px 5px rgba(0,0,0,0.75);
+  --line-gradient-light: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 
   --text-color-dark: #F5F5F5;
   --bkg-color-dark: #525E75;
   --bkg-color-container-dark: #F1DDBF;
-  --box-shadow-dark: 0 30px 40px rgb(0, 42, 81);
+  --box-shadow-dark:-1px 25px 13px 5px rgba(0,42,81);
+  --line-gradient-dark: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(255, 234, 234, 0.75), rgba(0, 0, 0, 0));
+
 
   --fredoka: "Fredoka One";
   --harmattan: "Harmattan";
@@ -24,6 +27,8 @@ $mobile-breakpoint: 44.9375rem; // 719px
     --bkg-color: var(--bkg-color-light);
     --bkg-color-container: var(--bkg-color-container-light);
     --box-shadow: var(--box-shadow-light);
+    --line-gradient: var(--line-gradient-light);
+
   }
 }
 
@@ -33,6 +38,7 @@ $mobile-breakpoint: 44.9375rem; // 719px
     --bkg-color: var(--bkg-color-dark);
     --bkg-color-container: var(--bkg-color-container-dark);
     --box-shadow: var(--box-shadow-dark);
+    --line-gradient: var(--line-gradient-dark);
   }
 }
 
@@ -41,6 +47,7 @@ $mobile-breakpoint: 44.9375rem; // 719px
   --bkg-color: var(--bkg-color-dark);
   --bkg-color-container: var(--bkg-color-container-dark);
   --box-shadow: var(--box-shadow-dark);
+  --line-gradient: var(--line-gradient-dark);
 }
 
 

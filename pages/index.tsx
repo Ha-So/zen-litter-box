@@ -5,6 +5,7 @@ import stylesNav from "../styles/Navbar.module.scss";
 import Sheet from "./components/sheet";
 import Intro from "./components/intro";
 import Navbar from "./components/navbar";
+import HorizontalArticle from "./components/horizontal-article";
 
 export default function Home() {
   const [width, setWidth] = useState(0);
@@ -34,6 +35,8 @@ export default function Home() {
       {<Navbar width={width} />}
       <div className={styles.sheet_container}>
         <Intro />
+        <HorizontalArticle />;
+        <Sheet />
         <Sheet />
       </div>
     </div>

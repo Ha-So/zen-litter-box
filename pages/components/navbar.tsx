@@ -4,7 +4,6 @@ import { GiFullFolder, GiSunrise, GiSunset } from "react-icons/gi";
 import { FaLongArrowAltDown, FaLongArrowAltUp, FaCat } from "react-icons/fa";
 import { IoLogoNoSmoking } from "react-icons/io";
 import { motion } from "framer-motion";
-import { setTheme } from "../../utils/utils";
 
 interface NavbarProps {
   width: number;
@@ -20,7 +19,6 @@ export default function Navbar({ width }: NavbarProps) {
       : "light";
     return theme;
   };
-
   const handleOnClick = () => {
     console.log("on click");
   };
