@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "../../styles/Navbar.module.scss";
 import { GiFullFolder, GiSunrise, GiSunset } from "react-icons/gi";
 import { FaLongArrowAltDown, FaLongArrowAltUp, FaCat } from "react-icons/fa";
+import { IoLogoNoSmoking } from "react-icons/io";
 import { motion } from "framer-motion";
 import { setTheme } from "../../utils/utils";
 
@@ -12,6 +13,13 @@ interface NavbarProps {
 export default function Navbar({ width }: NavbarProps) {
   const iconSize = 40;
   const isMobile = width < 768;
+
+  const getCurrentTheme = () => {
+    let theme = window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+    return theme;
+  };
 
   const handleOnClick = () => {
     console.log("on click");
@@ -42,7 +50,10 @@ export default function Navbar({ width }: NavbarProps) {
           whileHover={{ scale: 1.2 }}
           onClick={() => handleOnClick()}
         >
-          <GiSunset size={iconSize} className={styles.navbar_icons_hover} />
+          <IoLogoNoSmoking
+            size={iconSize}
+            className={styles.navbar_icons_hover}
+          />
         </motion.span>
       </div>
       <div className={styles.line} />

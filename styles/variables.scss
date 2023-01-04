@@ -10,9 +10,9 @@ $mobile-breakpoint: 44.9375rem; // 719px
   --box-shadow-light: 0 30px 40px rgba(0, 0, 0, 0.697);
 
   --text-color-dark: #F5F5F5;
-  --bkg-color-dark: #354259;
-  --bkg-color-container-dark: #CDC2AE;
-  --box-shadow-dark: 0 30px 40px rgb(0, 81, 101);
+  --bkg-color-dark: #525E75;
+  --bkg-color-container-dark: #F1DDBF;
+  --box-shadow-dark: 0 30px 40px rgb(0, 42, 81);
 
   --fredoka: "Fredoka One";
   --harmattan: "Harmattan";
@@ -36,5 +36,11 @@ $mobile-breakpoint: 44.9375rem; // 719px
   }
 }
 
+[color-scheme="dark"]{
+  --text-color: var(--text-color-dark);
+  --bkg-color: var(--bkg-color-dark);
+  --bkg-color-container: var(--bkg-color-container-dark);
+  --box-shadow: var(--box-shadow-dark);
+}
 
 

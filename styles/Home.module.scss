@@ -80,7 +80,7 @@
     content: "";
     width: 10px;
     height: 20px;
-    background: #000000;
+    background: var(--text-color);
     display: inline-block;
     animation: cursor-blink 1.0s steps(2) infinite;
     margin-bottom: -2px;
