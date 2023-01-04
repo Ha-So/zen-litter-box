@@ -5,10 +5,13 @@ import stylesNav from "../styles/Navbar.module.scss";
 import Sheet from "./components/sheet";
 import Intro from "./components/intro";
 import Navbar from "./components/navbar";
+import { keepTheme } from "../utils/utils";
 
 export default function Home() {
   const [width, setWidth] = useState(0);
-
+  useEffect(() => {
+    keepTheme();
+  });
   useEffect(() => {
     function handleResize() {
       setWidth(window.innerWidth);
@@ -32,7 +35,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {<Navbar width={width} />}
-      {/* <div className={stylesNav.line} /> */}
       <div className={styles.sheet_container}>
         <Intro />
         <Sheet />

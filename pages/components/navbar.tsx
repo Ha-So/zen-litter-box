@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../../styles/Navbar.module.scss";
 import { GiFullFolder, GiSunrise, GiSunset } from "react-icons/gi";
 import { FaLongArrowAltDown, FaLongArrowAltUp, FaCat } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { setTheme } from "../../utils/utils";
 
 interface NavbarProps {
   width: number;
@@ -11,6 +12,10 @@ interface NavbarProps {
 export default function Navbar({ width }: NavbarProps) {
   const iconSize = 40;
   const isMobile = width < 768;
+
+  const handleOnClick = () => {
+    console.log("on click");
+  };
   return (
     <div className={styles.navbar_container_row}>
       {!isMobile && (
@@ -32,7 +37,11 @@ export default function Navbar({ width }: NavbarProps) {
         <motion.span whileHover={{ scale: 1.2 }}>
           <GiFullFolder size={iconSize} className={styles.navbar_icons_hover} />
         </motion.span>
-        <motion.span whileHover={{ scale: 1.2 }}>
+        {/* onClick={() => setColor()} */}
+        <motion.span
+          whileHover={{ scale: 1.2 }}
+          onClick={() => handleOnClick()}
+        >
           <GiSunset size={iconSize} className={styles.navbar_icons_hover} />
         </motion.span>
       </div>
