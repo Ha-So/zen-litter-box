@@ -12,6 +12,7 @@
         -ms-overflow-style: none;
         /* Internet Explorer 10+ */
         scrollbar-width: none;
+        box-shadow: var(--box-shadow);
     
         /* Firefox */
         &::-webkit-scrollbar {
@@ -46,7 +47,7 @@
         scroll-snap-align: center;
         overflow: hidden;
         padding: 70px 40px 40px 40px;
-        box-shadow: var(--box-shadow);
+     
 
 
         /* Medium devices (landscape tablets, 768px and up) */

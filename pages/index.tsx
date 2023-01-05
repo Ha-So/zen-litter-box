@@ -1,13 +1,12 @@
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useLayoutEffect } from "react";
 import styles from "../styles/Home.module.scss";
 import stylesNav from "../styles/Navbar.module.scss";
 import Sheet from "./components/sheet";
 import Intro from "./components/intro";
 import Navbar from "./components/navbar";
-import HorizontalArticle from "./components/horizontal-article";
 
-export default function Home() {
+export default function Home({ theme, updateTheme }) {
   const [width, setWidth] = useState(0);
 
   useEffect(() => {
@@ -32,10 +31,9 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {<Navbar width={width} />}
+      {<Navbar width={width} setTheme={updateTheme} theme={theme} />}
       <div className={styles.sheet_container}>
         <Intro />
-        <HorizontalArticle />;
         <Sheet />
         <Sheet />
       </div>

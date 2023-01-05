@@ -1,12 +1,15 @@
 import React from "react";
 import styles from "../../styles/Home.module.scss";
 import { motion } from "framer-motion";
+import { FaRegThumbsUp } from "react-icons/fa";
+import useLocalStorage from "use-local-storage";
 
 export default function sheet() {
+  const iconSize = 10;
   return (
     <div className={styles.sheet_body}>
       {" "}
-      <div className="intro">
+      <motion.div className="intro">
         <motion.h1
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -24,7 +27,7 @@ export default function sheet() {
             <br />A digital garden. Feel free to dig around.{" "}
           </span>
         </p>
-      </div>
+      </motion.div>
     </div>
   );
 }

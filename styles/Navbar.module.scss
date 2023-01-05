@@ -45,7 +45,12 @@
         @media (max-width: 768px) {
             margin: 0 auto;
         }
+
+        &_toggle {
+            @extend .navbar_container_column_icons;
+        }
     }
+    
 }
 
 .line {
