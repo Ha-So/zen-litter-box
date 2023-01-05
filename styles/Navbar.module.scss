@@ -15,6 +15,10 @@
         margin-right: auto;
         position: absolute;
         z-index: 10;
+
+        @media (max-width: 768px) {
+                        width: 100vw;
+            }
     }
 
     &_icons {

@@ -1,7 +1,12 @@
 import React, { useEffect, useState, useContext } from "react";
 import styles from "../../styles/Navbar.module.scss";
-import { GiFullFolder, GiSunrise, GiSunset } from "react-icons/gi";
-import { FaLongArrowAltDown, FaLongArrowAltUp, FaCat } from "react-icons/fa";
+import { GiFullFolder, GiSunrise, GiSunset, GiNotebook } from "react-icons/gi";
+import {
+  FaLongArrowAltDown,
+  FaLongArrowAltUp,
+  FaArrowCircleDown,
+  FaCat,
+} from "react-icons/fa";
 import { IoLogoNoSmoking } from "react-icons/io";
 import { motion } from "framer-motion";
 
@@ -12,7 +17,6 @@ interface NavbarProps {
 }
 
 export default function Navbar({ width, theme, setTheme }: NavbarProps) {
-  const [rootColor, setRootColor] = useState("dark");
   const iconSize = 40;
   const isMobile = width < 768;
 
@@ -33,14 +37,8 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
         <h2 className={styles.navbar_container_column_title}>Zen Litter Box</h2>
       )}
       <div className={styles.navbar_container_column_icons}>
-        <motion.span
-          className={styles.navbar_icons_hover}
-          whileHover={{ scale: 1.2 }}
-        >
-          <FaLongArrowAltDown size={iconSize} />
-        </motion.span>
         <motion.span whileHover={{ scale: 1.2 }}>
-          <FaLongArrowAltUp size={iconSize} />
+          <GiNotebook size={iconSize} />
         </motion.span>
         <motion.span whileHover={{ scale: 1.2 }}>
           <FaCat size={iconSize} />
@@ -50,10 +48,18 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
         </motion.span>
         {/* onClick={() => setColor()} */}
         <motion.span whileHover={{ scale: 1.2 }} onClick={() => handleClick()}>
-          <IoLogoNoSmoking
-            size={iconSize}
-            className={styles.navbar_icons_hover_toggle}
-          />
+          {theme === "dark" && (
+            <GiSunrise
+              size={iconSize}
+              className={styles.navbar_icons_hover_toggle}
+            />
+          )}
+          {theme === "light" && (
+            <GiSunset
+              size={iconSize}
+              className={styles.navbar_icons_hover_toggle}
+            />
+          )}
         </motion.span>
       </div>
       <div className={styles.line} />
