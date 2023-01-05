@@ -1,17 +1,17 @@
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useLayoutEffect, useRef } from "react";
 import styles from "../styles/Home.module.scss";
 import stylesNav from "../styles/Navbar.module.scss";
-import Sheet from "./components/sheet";
+import IntroSecondary from "./components/intro-secondary";
+import IntroTertiary from "./components/intro-tertiary";
 import Intro from "./components/intro";
 import Navbar from "./components/navbar";
-import { keepTheme } from "../utils/utils";
 
-export default function Home() {
+export default function Home({ theme, updateTheme }) {
   const [width, setWidth] = useState(0);
-  useEffect(() => {
-    keepTheme();
-  });
+  const introSecondary = useRef();
+  const introTertiary = useRef();
+
   useEffect(() => {
     function handleResize() {
       setWidth(window.innerWidth);
@@ -34,10 +34,14 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {<Navbar width={width} />}
+      {<Navbar width={width} setTheme={updateTheme} theme={theme} />}
       <div className={styles.sheet_container}>
-        <Intro />
-        <Sheet />
+        <Intro scrollReference={introSecondary} />
+        <IntroSecondary
+          reference={introSecondary}
+          scrollReference={introTertiary}
+        />
+        <IntroTertiary reference={introTertiary} />
       </div>
     </div>
   );

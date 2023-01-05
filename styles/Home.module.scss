@@ -12,6 +12,7 @@
         -ms-overflow-style: none;
         /* Internet Explorer 10+ */
         scrollbar-width: none;
+        box-shadow: var(--box-shadow);
     
         /* Firefox */
         &::-webkit-scrollbar {
@@ -20,7 +21,19 @@
     
         justify-content: center;
         align-items: center;
+
+        &_horizontal {
+            @extend .sheet_container_horizontal;
+
+            overflow-x: auto;
+            overscroll-behavior-x: contain;
+            scroll-snap-type: x mandatory;
+            overflow-y: hidden;
+            overscroll-behavior-y: none;
+        }
     }
+
+
 
     &_body {
         font-family: sans-serif;
@@ -34,7 +47,8 @@
         scroll-snap-align: center;
         overflow: hidden;
         padding: 70px 40px 40px 40px;
-        box-shadow: var(--box-shadow);
+     
+
 
         /* Medium devices (landscape tablets, 768px and up) */
             @media only screen and (min-width: 768px) {
@@ -59,6 +73,11 @@
 }
 
 
+.intro_icon {
+    margin-top: 40px;
+    cursor: pointer;
+}
+
 
 .paragraph_breaks_intro {
     -webkit-hyphens: auto;
@@ -80,7 +99,7 @@
     content: "";
     width: 10px;
     height: 20px;
-    background: #000000;
+    background: var(--text-color);
     display: inline-block;
     animation: cursor-blink 1.0s steps(2) infinite;
     margin-bottom: -2px;
@@ -92,3 +111,65 @@
     background-image:
         'linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0))';
 }
+
+.intro_secondary_container {
+    margin: 0 auto;
+    width: 50vw;
+
+    // margin: 0 auto;
+    /* Medium devices (landscape tablets, 768px and up) */
+    @media only screen and (max-width: 768px) {
+        width: 80vw;
+    }
+    
+    margin-top: 30px;
+
+
+    &_title {
+        text-align: left;
+    }
+
+    &_quote {
+        margin: 0 auto;
+        width: 50vw;
+            // margin: 0 auto;
+            /* Medium devices (landscape tablets, 768px and up) */
+                @media only screen and (max-width: 768px) {
+                    width: 80vw;
+                }
+    }
+}
+
+.intro_tertiary_container {
+    margin-left: auto;
+    margin-right: 0;
+    width: fit-content;
+
+    // margin: 0 auto;
+    /* Medium devices (landscape tablets, 768px and up) */
+    @media only screen and (max-width: 768px) {
+        width: 100vw;
+    }
+
+    margin-top: 30px;
+
+
+    &_title {
+        text-align: left;
+    }
+
+    &_quote {
+        margin: 0 auto;
+        width: 50vw;
+
+        // margin: 0 auto;
+        /* Medium devices (landscape tablets, 768px and up) */
+        @media only screen and (max-width: 768px) {
+            width: 100vw;
+        }
+    }
+}
+
+ ul.space_list li {
+     margin-bottom: 1em;
+ }
