@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import styles from "../../styles/Navbar.module.scss";
+import Link from "next/link";
 import { GiFullFolder, GiSunrise, GiSunset, GiNotebook } from "react-icons/gi";
 import {
   FaLongArrowAltDown,
@@ -42,7 +43,9 @@ export default function Navbar({
       )}
       <div className={styles.navbar_container_column_icons}>
         <motion.span whileHover={{ scale: 1.2 }}>
-          <GiNotebook size={iconSize} />
+          <Link href="/notes">
+            <GiNotebook size={iconSize} />
+          </Link>
         </motion.span>
         <motion.span
           whileHover={{ scale: 1.2 }}

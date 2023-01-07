@@ -37,7 +37,7 @@ export default function Home({ theme, updateTheme }: HomeProps) {
   useEffect(() => {
     setTimeout(() => {
       setShowMinushkaResult(false);
-    }, 5000);
+    }, 4000);
   }, [showMinushkaResult]);
 
   return (
