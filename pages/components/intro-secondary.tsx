@@ -24,21 +24,19 @@ export default function IntroSecondary({ reference, scrollReference }) {
             on the process, care, and craft it takes to get there. - @jhooks
           </p>
           <hr />
-
-          <p>
-            A digital garden is... less about: 👎 Chronologically sorted posts
-            👎 Paginated posts 👎 Content marketing 👎 Perfection <br /> ...and
-            more about: 👍 Non-performative blogging 👍 Personal curation 👍
-            Shipping
-          </p>
         </div>
-        <motion.span whileHover={{ scale: 1.2 }}>
+        <motion.div
+          animate={{ y: [0, 10, 0], opacity: [0, 1, 0], scale: 1.0 }}
+          transition={{ repeat: Infinity, duration: 5 }}
+          className={styles.intro_icon_container}
+        >
+          <h4 className={styles.scroll_text}>Scroll Down</h4>
           <AiOutlineDown
-            size={iconSize}
             className={styles.intro_icon}
+            size={iconSize}
             onClick={() => scroll()}
           />
-        </motion.span>
+        </motion.div>
       </div>
     </div>
   );
