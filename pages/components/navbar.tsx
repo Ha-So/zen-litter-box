@@ -8,7 +8,7 @@ import {
   FaCat,
 } from "react-icons/fa";
 import { IoLogoNoSmoking } from "react-icons/io";
-import { motion } from "framer-motion";
+import { motion, useScroll, useSpring } from "framer-motion";
 
 interface NavbarProps {
   width: number;
@@ -24,11 +24,6 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
     console.log("on click");
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
-
-    // setRootColor("light");
-    // const root = document.querySelector(":root");
-    // root.setAttribute("color-scheme", rootColor);
-    // console.log(rootColor);
   };
 
   return (
@@ -44,9 +39,14 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
           <FaCat size={iconSize} />
         </motion.span>
         <motion.span whileHover={{ scale: 1.2 }}>
-          <GiFullFolder size={iconSize} className={styles.navbar_icons_hover} />
+          <a href="https://ha-so.github.io/home/">
+            {" "}
+            <GiFullFolder
+              size={iconSize}
+              className={styles.navbar_icons_hover}
+            />
+          </a>
         </motion.span>
-        {/* onClick={() => setColor()} */}
         <motion.span whileHover={{ scale: 1.2 }} onClick={() => handleClick()}>
           {theme === "dark" && (
             <GiSunrise

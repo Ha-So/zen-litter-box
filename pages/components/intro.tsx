@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../../styles/Home.module.scss";
-import { motion } from "framer-motion";
+import { motion, useScroll, useSpring } from "framer-motion";
 import { FaRegThumbsUp, FaArrowCircleDown } from "react-icons/fa";
 import { AiOutlineDown } from "react-icons/ai";
+import Typewriter from "typewriter-effect";
 
 export default function sheet({ scrollReference }) {
   const iconSize = 60;
+  const [showCursor, setShowCursor] = useState(false);
+  const [showScroll, setShowScroll] = useState(false);
+
   const scroll = () => {
     //amount to scroll is negative to scroll up
     console.log("scroll");
@@ -23,17 +27,54 @@ export default function sheet({ scrollReference }) {
           Hi.
         </motion.h1>
         <h2 className="intro-header">
-          My name is Haris. <br /> And this is my zen litter box.
+          <Typewriter
+            onInit={(typewriter) => {
+              typewriter
+                .pauseFor(1000)
+                .pasteString(" My name is Haris.<br />", null)
+                .pauseFor(1200)
+                .pasteString("And this is my zen litter box.", null)
+                .callFunction(() => setShowCursor(true))
+                .start();
+            }}
+            options={{
+              cursor: " ",
+            }}
+          />
         </h2>
-        <p className={styles.paragraph_breaks_intro}>
-          A collection of thoughts and things I learned that should be shared.
-          <span>
-            <br />A digital garden. Feel free to dig around.{" "}
-          </span>
-        </p>
-        <motion.span whileHover={{ scale: 1.2 }} className={styles.intro_icon}>
-          <AiOutlineDown size={iconSize} onClick={() => scroll()} />
-        </motion.span>
+        {showCursor && (
+          <p className={styles.paragraph_breaks_intro}>
+            <Typewriter
+              onInit={(typewriter) => {
+                typewriter
+                  .pauseFor(200)
+                  .changeDelay(30)
+                  .typeString(
+                    " A collection of thoughts and things I learned that should be shared."
+                  )
+                  .typeString(
+                    "<br />A digital garden. Feel free to dig around."
+                  )
+                  .callFunction(() => setShowScroll(true))
+                  .start();
+              }}
+            />
+          </p>
+        )}
+        {showScroll && (
+          <motion.div
+            animate={{ y: [0, 10, 0], opacity: [0, 1, 0], scale: 1.0 }}
+            transition={{ repeat: Infinity, duration: 5 }}
+            className={styles.intro_icon_container}
+          >
+            <h4 className={styles.scroll_text}>Scroll Down</h4>
+            <AiOutlineDown
+              className={styles.intro_icon}
+              size={iconSize}
+              onClick={() => scroll()}
+            />
+          </motion.div>
+        )}
       </div>
     </div>
   );
