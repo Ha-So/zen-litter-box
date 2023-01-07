@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../../styles/Home.module.scss";
+import styles from "../../../styles/Home.module.scss";
 import { GiFullFolder, GiSunrise, GiNotebook } from "react-icons/gi";
 import { FaCat } from "react-icons/fa";
 import { motion } from "framer-motion";

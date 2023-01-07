@@ -1,6 +1,7 @@
-import firebase from "../firebase/clientApp";
+import styles from "../styles/Home.module.scss";
 import { useCollection } from "react-firebase-hooks/firestore";
 import NotesFetch from "./api/notes";
+import NotesContents from "./components/notes/notes-contents";
 
 export default function Notes() {
   // Destructure user, loading, and error out of the hook.
@@ -14,9 +15,12 @@ export default function Notes() {
   //   if (!notesLoading && notes) {
   //     notes.docs.map((doc: any) => console.log(doc.data()));
   //   }
+
   return (
-    <div>
-      <NotesFetch />
+    <div className={styles.sheet_background}>
+      <div className={styles.sheet_container}>
+        <NotesContents />
+      </div>
     </div>
   );
 }

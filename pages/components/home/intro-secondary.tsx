@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../styles/Home.module.scss";
+import styles from "../../../styles/Home.module.scss";
 import { AiOutlineDown } from "react-icons/ai";
 import { motion } from "framer-motion";
 

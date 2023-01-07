@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../../styles/Home.module.scss";
+import styles from "../../../styles/Home.module.scss";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { FaRegThumbsUp, FaArrowCircleDown } from "react-icons/fa";
 import { AiOutlineDown } from "react-icons/ai";
@@ -17,6 +17,12 @@ export default function sheet({ scrollReference }: IntroProps) {
   const scroll = () => {
     scrollReference?.current.scrollIntoView();
   };
+
+  const waitForAnimation = () => {
+    setTimeout(() => {
+      setShowCursor(true);
+    }, 2000);
+  };
   return (
     <div className={styles.sheet_body}>
       <div className="intro">
@@ -28,7 +34,7 @@ export default function sheet({ scrollReference }: IntroProps) {
         >
           Hi.
         </motion.h1>
-        <h2 className="intro-header">
+        {/* <h2 className="intro-header">
           <Typewriter
             onInit={(typewriter) => {
               typewriter
@@ -43,13 +49,24 @@ export default function sheet({ scrollReference }: IntroProps) {
               cursor: " ",
             }}
           />
-        </h2>
+        </h2> */}
+        <motion.h2
+          initial={{ opacity: 0, scale: 1.0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.5, delay: 1.5 }}
+          className="intro-header"
+          onAnimationStart={() => {
+            waitForAnimation();
+          }}
+        >
+          My name is Haris. <br /> And this is my zen litter box.
+        </motion.h2>
         {showCursor && (
           <div className={styles.paragraph_breaks_intro}>
             <Typewriter
               onInit={(typewriter) => {
                 typewriter
-                  .pauseFor(200)
+                  .pauseFor(500)
                   .changeDelay(30)
                   .typeString(
                     " A collection of thoughts and things I learned that should be shared."

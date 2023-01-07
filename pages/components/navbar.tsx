@@ -38,9 +38,12 @@ export default function Navbar({
 
   return (
     <div className={styles.navbar_container_row}>
-      {!isMobile && (
-        <h2 className={styles.navbar_container_column_title}>Zen Litter Box</h2>
-      )}
+      <Link href="/">
+        <h2 className={styles.navbar_container_column_title}>
+          {isMobile ? "ZLB" : "Zen Litter Box"}
+        </h2>
+      </Link>
+
       <div className={styles.navbar_container_column_icons}>
         <motion.span whileHover={{ scale: 1.2 }}>
           <Link href="/notes">
