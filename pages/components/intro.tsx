@@ -5,14 +5,16 @@ import { FaRegThumbsUp, FaArrowCircleDown } from "react-icons/fa";
 import { AiOutlineDown } from "react-icons/ai";
 import Typewriter from "typewriter-effect";
 
-export default function sheet({ scrollReference }) {
+interface IntroProps {
+  scrollReference: any;
+}
+
+export default function sheet({ scrollReference }: IntroProps) {
   const iconSize = 60;
   const [showCursor, setShowCursor] = useState(false);
   const [showScroll, setShowScroll] = useState(false);
 
   const scroll = () => {
-    //amount to scroll is negative to scroll up
-    console.log("scroll");
     scrollReference?.current.scrollIntoView();
   };
   return (
@@ -43,7 +45,7 @@ export default function sheet({ scrollReference }) {
           />
         </h2>
         {showCursor && (
-          <p className={styles.paragraph_breaks_intro}>
+          <div className={styles.paragraph_breaks_intro}>
             <Typewriter
               onInit={(typewriter) => {
                 typewriter
@@ -59,7 +61,7 @@ export default function sheet({ scrollReference }) {
                   .start();
               }}
             />
-          </p>
+          </div>
         )}
         {showScroll && (
           <motion.div

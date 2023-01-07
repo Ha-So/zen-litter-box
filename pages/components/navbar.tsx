@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import styles from "../../styles/Navbar.module.scss";
+import Link from "next/link";
 import { GiFullFolder, GiSunrise, GiSunset, GiNotebook } from "react-icons/gi";
 import {
   FaLongArrowAltDown,
@@ -14,14 +15,23 @@ interface NavbarProps {
   width: number;
   theme: string;
   setTheme: (newTheme: string) => void;
+  setShowMinushkaResult: (result: boolean) => void;
 }
 
-export default function Navbar({ width, theme, setTheme }: NavbarProps) {
+export default function Navbar({
+  width,
+  theme,
+  setTheme,
+  setShowMinushkaResult,
+}: NavbarProps) {
   const iconSize = 40;
   const isMobile = width < 768;
 
-  const handleClick = () => {
-    console.log("on click");
+  const handleMinushkaClick = () => {
+    setShowMinushkaResult(true);
+  };
+
+  const handleThemeClick = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
   };
@@ -33,9 +43,14 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
       )}
       <div className={styles.navbar_container_column_icons}>
         <motion.span whileHover={{ scale: 1.2 }}>
-          <GiNotebook size={iconSize} />
+          <Link href="/notes">
+            <GiNotebook size={iconSize} />
+          </Link>
         </motion.span>
-        <motion.span whileHover={{ scale: 1.2 }}>
+        <motion.span
+          whileHover={{ scale: 1.2 }}
+          onClick={() => handleMinushkaClick()}
+        >
           <FaCat size={iconSize} />
         </motion.span>
         <motion.span whileHover={{ scale: 1.2 }}>
@@ -47,7 +62,10 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
             />
           </a>
         </motion.span>
-        <motion.span whileHover={{ scale: 1.2 }} onClick={() => handleClick()}>
+        <motion.span
+          whileHover={{ scale: 1.2 }}
+          onClick={() => handleThemeClick()}
+        >
           {theme === "dark" && (
             <GiSunrise
               size={iconSize}

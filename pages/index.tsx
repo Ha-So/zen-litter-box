@@ -8,29 +8,9 @@ import Intro from "./components/intro";
 import Navbar from "./components/navbar";
 import { motion, useScroll, useSpring } from "framer-motion";
 
-export default function Home({ theme, updateTheme }) {
-  const [width, setWidth] = useState(0);
+export default function Home() {
   const introSecondary = useRef();
   const introTertiary = useRef();
-
-  const { scrollY } = useScroll();
-  useEffect(() => {
-    console.log(scrollY);
-  }, [scrollY]);
-
-  useEffect(() => {
-    function handleResize() {
-      setWidth(window.innerWidth);
-    }
-
-    window.addEventListener("resize", handleResize);
-
-    handleResize();
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [setWidth]);
 
   return (
     <div className={styles.sheet_background}>
@@ -52,7 +32,7 @@ export default function Home({ theme, updateTheme }) {
           data-y_margin="18"
         ></script>
       </Head>
-      {<Navbar width={width} setTheme={updateTheme} theme={theme} />}
+
       <div className={styles.sheet_container}>
         <Intro scrollReference={introSecondary} />
         <IntroSecondary
