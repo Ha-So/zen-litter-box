@@ -15,22 +15,30 @@ interface HomeProps {
 
 export default function Home({ theme, updateTheme }: HomeProps) {
   const [width, setWidth] = useState(0);
+  const [showMinushkaResult, setShowMinushkaResult] = useState(false);
   const introSecondary = useRef();
   const introTertiary = useRef();
+  const variants = {
+    open: { opacity: 0.9, y: 0, transition: { duration: 1 } },
+    closed: { opacity: 0, y: "-100%", transition: { duration: 1 } },
+  };
 
   useEffect(() => {
     function handleResize() {
       setWidth(window.innerWidth);
     }
-
     window.addEventListener("resize", handleResize);
-
     handleResize();
-
     return () => {
       window.removeEventListener("resize", handleResize);
     };
   }, [setWidth]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShowMinushkaResult(false);
+    }, 5000);
+  }, [showMinushkaResult]);
 
   return (
     <div className={styles.sheet_background}>
@@ -52,7 +60,22 @@ export default function Home({ theme, updateTheme }: HomeProps) {
           data-y_margin="18"
         ></script>
       </Head>
-      {<Navbar width={width} setTheme={updateTheme} theme={theme} />}
+      {
+        <Navbar
+          width={width}
+          setTheme={updateTheme}
+          theme={theme}
+          setShowMinushkaResult={setShowMinushkaResult}
+        />
+      }
+      <motion.div
+        animate={showMinushkaResult ? "open" : "closed"}
+        variants={variants}
+        initial={"closed"}
+        className={styles.sheet_modal}
+      >
+        Minushka is napping!
+      </motion.div>
       <div className={styles.sheet_container}>
         <Intro scrollReference={introSecondary} />
         <IntroSecondary

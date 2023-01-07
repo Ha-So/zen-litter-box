@@ -19,7 +19,7 @@ export default function IntroTertiary({ reference }: IntroProps) {
   const [inView, setInView] = useState(false);
 
   const iconSize = 30;
-  const footerText = "I made this site with a lot of love.";
+  const footerText = "I made this garden with a lot of love.";
   const footerTextCoffee = "If you like it, I like ";
   const footerTextGit = ". Checkout the code on my ";
   const variants = {
@@ -30,7 +30,9 @@ export default function IntroTertiary({ reference }: IntroProps) {
   return (
     <div className={styles.sheet_body} ref={reference}>
       <div className={styles.intro_secondary_container}>
-        <h2 className={styles.intro_secondary_container_title}>Menu Legend</h2>
+        <h2 className={styles.intro_secondary_container_title}>
+          Garden Legend
+        </h2>
         <ul className={styles.space_list}>
           <li>
             <GiNotebook size={iconSize} /> - A collection of notes, snippets and

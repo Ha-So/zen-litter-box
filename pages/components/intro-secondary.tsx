@@ -17,13 +17,13 @@ export default function IntroSecondary({
     scrollReference?.current.scrollIntoView();
   };
   return (
-    <div className={styles.sheet_body} ref={reference}>
+    <div className={styles.sheet_body}>
       <div className={styles.intro_secondary_container}>
-        <h2 className={styles.intro_secondary_container_title}>
+        <h2 className={styles.intro_secondary_container_title} ref={reference}>
           What is a digital garden?
         </h2>
         <div className={styles.intro_secondary_container_quote}>
-          <hr />
+          <hr className={styles.intro_secondary_container_quote_line} />
           <p>
             The phrase "digital garden" is a metaphor for thinking about writing
             and creating that focuses less on the resulting "showpiece" and more
@@ -34,7 +34,7 @@ export default function IntroSecondary({
             @jhooks
           </a>
           <br />
-          <hr />
+          <hr className={styles.intro_secondary_container_quote_line} />
         </div>
         <motion.div
           animate={{ y: [0, 10, 0], opacity: [0, 1, 0], scale: 1.0 }}

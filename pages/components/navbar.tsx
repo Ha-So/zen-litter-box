@@ -14,13 +14,23 @@ interface NavbarProps {
   width: number;
   theme: string;
   setTheme: (newTheme: string) => void;
+  setShowMinushkaResult: (result: boolean) => void;
 }
 
-export default function Navbar({ width, theme, setTheme }: NavbarProps) {
+export default function Navbar({
+  width,
+  theme,
+  setTheme,
+  setShowMinushkaResult,
+}: NavbarProps) {
   const iconSize = 40;
   const isMobile = width < 768;
 
-  const handleClick = () => {
+  const handleMinushkaClick = () => {
+    setShowMinushkaResult(true);
+  };
+
+  const handleThemeClick = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
   };
@@ -34,7 +44,10 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
         <motion.span whileHover={{ scale: 1.2 }}>
           <GiNotebook size={iconSize} />
         </motion.span>
-        <motion.span whileHover={{ scale: 1.2 }}>
+        <motion.span
+          whileHover={{ scale: 1.2 }}
+          onClick={() => handleMinushkaClick()}
+        >
           <FaCat size={iconSize} />
         </motion.span>
         <motion.span whileHover={{ scale: 1.2 }}>
@@ -46,7 +59,10 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
             />
           </a>
         </motion.span>
-        <motion.span whileHover={{ scale: 1.2 }} onClick={() => handleClick()}>
+        <motion.span
+          whileHover={{ scale: 1.2 }}
+          onClick={() => handleThemeClick()}
+        >
           {theme === "dark" && (
             <GiSunrise
               size={iconSize}
