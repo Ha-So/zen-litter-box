@@ -3,7 +3,15 @@ import styles from "../../styles/Home.module.scss";
 import { AiOutlineDown } from "react-icons/ai";
 import { motion } from "framer-motion";
 
-export default function IntroSecondary({ reference, scrollReference }) {
+interface IntroProps {
+  reference: any;
+  scrollReference: any;
+}
+
+export default function IntroSecondary({
+  reference,
+  scrollReference,
+}: IntroProps) {
   const iconSize = 60;
   const scroll = () => {
     //amount to scroll is negative to scroll up

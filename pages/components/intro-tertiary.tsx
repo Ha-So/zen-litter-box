@@ -5,7 +5,11 @@ import { FaCat } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { InView } from "react-intersection-observer";
 
-export default function IntroTertiary({ reference, scrollReference }) {
+interface IntroProps {
+  reference: any;
+}
+
+export default function IntroTertiary({ reference }: IntroProps) {
   // const { ref, inView, entry } = useInView({
   //   /* Optional options */
   //   threshold: 0,

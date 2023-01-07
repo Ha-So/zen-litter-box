@@ -8,7 +8,12 @@ import Intro from "./components/intro";
 import Navbar from "./components/navbar";
 import { motion, useScroll, useSpring } from "framer-motion";
 
-export default function Home({ theme, updateTheme }) {
+interface HomeProps {
+  theme: string;
+  updateTheme: (newTheme: string) => void;
+}
+
+export default function Home({ theme, updateTheme }: HomeProps) {
   const [width, setWidth] = useState(0);
   const introSecondary = useRef();
   const introTertiary = useRef();
