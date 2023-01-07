@@ -91,25 +91,10 @@
     -ms-hyphens: auto;
     hyphens: auto;
     font-weight: 500;
-    font-size: 150%;
+    font-size: 100%;
     line-height: 26pt;
+    font-family: var(--paragraph-font);
 }
-
-// @keyframes cursor-blink {
-//     0% {
-//         opacity: 0;
-//     }
-// }
-
-// .paragraph_breaks_intro span::after {
-//     content: "";
-//     width: 10px;
-//     height: 20px;
-//     background: var(--text-color);
-//     display: inline-block;
-//     animation: cursor-blink 1.0s steps(2) infinite;
-//     margin-bottom: -2px;
-// }
 
 .line-break {
     height: '1px';
@@ -194,6 +179,7 @@
 
  ul.space_list li {
      margin-bottom: 1em;
+     font-family: var(--paragraph-font);
  }
 
  .footer {
@@ -207,6 +193,7 @@
  }
 
 .footer_text {
+    font-family: var(--paragraph-font);
     color: #F5F5F5;
     width: 80vw;
     margin: 0 auto;
@@ -221,5 +208,6 @@
 
 .footer_link {
     text-decoration: underline;
-    color:aquamarine;
+    color:rgb(0, 189, 126);
+    font-family: var(--paragraph-font);
 }

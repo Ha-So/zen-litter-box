@@ -18,11 +18,6 @@ export default function Home({ theme, updateTheme }: HomeProps) {
   const introSecondary = useRef();
   const introTertiary = useRef();
 
-  const { scrollY } = useScroll();
-  useEffect(() => {
-    console.log(scrollY);
-  }, [scrollY]);
-
   useEffect(() => {
     function handleResize() {
       setWidth(window.innerWidth);

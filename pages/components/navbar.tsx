@@ -21,7 +21,6 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
   const isMobile = width < 768;
 
   const handleClick = () => {
-    console.log("on click");
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
   };

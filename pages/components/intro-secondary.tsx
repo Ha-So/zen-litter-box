@@ -14,8 +14,6 @@ export default function IntroSecondary({
 }: IntroProps) {
   const iconSize = 60;
   const scroll = () => {
-    //amount to scroll is negative to scroll up
-    console.log("scroll");
     scrollReference?.current.scrollIntoView();
   };
   return (
@@ -29,8 +27,13 @@ export default function IntroSecondary({
           <p>
             The phrase "digital garden" is a metaphor for thinking about writing
             and creating that focuses less on the resulting "showpiece" and more
-            on the process, care, and craft it takes to get there. - @jhooks
+            on the process, care, and craft it takes to get there.
           </p>
+          -{" "}
+          <a className={styles.footer_link} href="https://twitter.com/jhooks">
+            @jhooks
+          </a>
+          <br />
           <hr />
         </div>
         <motion.div

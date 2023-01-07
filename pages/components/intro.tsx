@@ -15,9 +15,6 @@ export default function sheet({ scrollReference }: IntroProps) {
   const [showScroll, setShowScroll] = useState(false);
 
   const scroll = () => {
-    //amount to scroll is negative to scroll up
-    console.log("scroll");
-    console.log(typeof scrollReference);
     scrollReference?.current.scrollIntoView();
   };
   return (
@@ -48,7 +45,7 @@ export default function sheet({ scrollReference }: IntroProps) {
           />
         </h2>
         {showCursor && (
-          <p className={styles.paragraph_breaks_intro}>
+          <div className={styles.paragraph_breaks_intro}>
             <Typewriter
               onInit={(typewriter) => {
                 typewriter
@@ -64,7 +61,7 @@ export default function sheet({ scrollReference }: IntroProps) {
                   .start();
               }}
             />
-          </p>
+          </div>
         )}
         {showScroll && (
           <motion.div

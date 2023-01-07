@@ -23,7 +23,7 @@ export default function IntroTertiary({ reference }: IntroProps) {
   const footerTextCoffee = "If you like it, I like ";
   const footerTextGit = ". Checkout the code on my ";
   const variants = {
-    open: { opacity: 0.6, y: 0, transition: { duration: 3 } },
+    open: { opacity: 0.7, y: 0, transition: { duration: 3 } },
     closed: { opacity: 0, y: "-100%" },
   };
 
@@ -61,7 +61,8 @@ export default function IntroTertiary({ reference }: IntroProps) {
               ref={ref}
             >
               <div className={styles.footer_text}>
-                {footerText} <span>&#128150;</span>
+                {footerText}
+                <span>&#128150; </span>
                 {footerTextCoffee}
                 <a
                   className={styles.footer_link}
