@@ -54,7 +54,12 @@ export default function App({ Component, pageProps }: AppProps) {
         theme={theme}
         setShowMinushkaResult={setShowMinushkaResult}
       />
-      <Component {...pageProps} updateTheme={updateTheme} theme={theme} />
+      <Component
+        {...pageProps}
+        updateTheme={updateTheme}
+        theme={theme}
+        width={width}
+      />
       <motion.div
         animate={showMinushkaResult ? "open" : "closed"}
         variants={variants}

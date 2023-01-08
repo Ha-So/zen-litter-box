@@ -8,9 +8,14 @@ import Intro from "./components/home/intro";
 import Navbar from "./components/navbar";
 import { motion, useScroll, useSpring } from "framer-motion";
 
-export default function Home() {
+export interface HomeProps {
+  width: number;
+}
+
+export default function Home({ width }: HomeProps) {
   const introSecondary = useRef();
   const introTertiary = useRef();
+  const data_x = width < 768 ? "18" : "200";
 
   return (
     <div className={styles.sheet_background}>
@@ -28,7 +33,7 @@ export default function Home() {
           data-message=""
           data-color="#40DCA5"
           data-position="Right"
-          data-x_margin="18"
+          data-x_margin={data_x}
           data-y_margin="18"
         ></script>
       </Head>
