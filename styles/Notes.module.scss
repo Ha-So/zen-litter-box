@@ -1,0 +1,68 @@
+.sheet {
+
+    &_background {
+        background-color: var(--bkg-color);
+        color: var(--text-color);
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        /* Internet Explorer 10+ */
+        scrollbar-width: none;
+
+        /* Firefox */
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    &_container {
+        background-color: var(--bkg-color-container);
+        color: var(--text-color);
+        position: relative;
+        -ms-overflow-style: none;
+        /* Internet Explorer 10+ */
+        scrollbar-width: none;
+       
+
+        /* Firefox */
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        justify-content: center;
+        align-items: center;
+    }
+
+    &_body {
+        font-family: sans-serif;
+        background-color: var(--bkg-color);
+        color: var(--text-color);
+        height: 100vh;
+        width: 100vw;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        padding: 70px 40px 40px 40px;
+
+        /* Medium devices (landscape tablets, 768px and up) */
+        @media only screen and (min-width: 768px) {
+            width: 80vw;
+        }
+    }
+}
+
+.notes{
+
+    &_header {
+        margin-top: 40px;
+    }
+
+    &_title {
+        text-decoration: underline;
+        color: var(--vibrant-bkg);
+        width: fit-content;
+
+        &_container{
+
+        }
+    }
+}

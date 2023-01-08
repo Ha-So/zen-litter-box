@@ -26,6 +26,7 @@ $mobile-breakpoint: 44.9375rem; // 719px
   --martian-mono: "Martian Mono";
   --vibrant-bkg-aqua: rgba(62, 220, 164, 255);
   --paragraph-font: var(--harmattan);
+  --bkg-color: var(--bkg-color-dark);
 }
 
 @media(prefers-color-scheme: light) {

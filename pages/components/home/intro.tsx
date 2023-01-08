@@ -34,22 +34,6 @@ export default function sheet({ scrollReference }: IntroProps) {
         >
           Hi.
         </motion.h1>
-        {/* <h2 className="intro-header">
-          <Typewriter
-            onInit={(typewriter) => {
-              typewriter
-                .pauseFor(1000)
-                .pasteString(" My name is Haris.<br />", null)
-                .pauseFor(1200)
-                .pasteString("And this is my zen litter box.", null)
-                .callFunction(() => setShowCursor(true))
-                .start();
-            }}
-            options={{
-              cursor: " ",
-            }}
-          />
-        </h2> */}
         <motion.h2
           initial={{ opacity: 0, scale: 1.0 }}
           animate={{ opacity: 1, scale: 1 }}

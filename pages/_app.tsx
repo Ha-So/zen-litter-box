@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const [width, setWidth] = useState(0);
   const [showMinushkaResult, setShowMinushkaResult] = useState(false);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     setTheme(
       window.matchMedia("(prefers-color-scheme: dark)").matches
         ? "dark"

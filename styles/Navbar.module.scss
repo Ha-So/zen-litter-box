@@ -13,7 +13,7 @@
         right: 0;
         margin-left: auto;
         margin-right: auto;
-        position: absolute;
+        position: fixed;
         z-index: 10;
 
         @media (max-width: 768px) {
@@ -27,6 +27,7 @@
         padding-right: 40px;
         gap: 30px;
         padding-bottom: 0px;
+   
         
         &_hover {
          cursor: pointer;
@@ -46,6 +47,8 @@
         margin-left: auto;
         padding-right: 40px;
         padding-top: 30px;
+        color: var(--text-color);
+
         @media (max-width: 768px) {
             margin: 0 auto;
         }
@@ -65,6 +68,7 @@
         margin-left: auto;
         padding-right: 40px;
         padding-top: 30px;
+        color: var(--text-color);
 
         @media (max-width: 768px) {
             margin: 0 auto;
@@ -99,6 +103,7 @@
         margin-left: 40px;
         gap: 20px;
         top: 80px;
+        color: var(--text-color);
     
         // @media (max-width: 768px) {
         //     margin: 0 auto;
