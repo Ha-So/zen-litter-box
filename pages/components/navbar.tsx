@@ -10,7 +10,7 @@ import {
   FaCat,
 } from "react-icons/fa";
 import { IoLogoNoSmoking } from "react-icons/io";
-import { motion, useScroll, useSpring } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 
 interface NavbarProps {
   width: number;

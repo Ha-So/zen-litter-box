@@ -4,44 +4,76 @@
         background-color: var(--bkg-color);
         color: var(--text-color);
         scrollbar-width: none;
-        -ms-overflow-style: none;
-        /* Internet Explorer 10+ */
-        scrollbar-width: none;
-
-        /* Firefox */
-        &::-webkit-scrollbar {
-            display: none;
-        }
+            -ms-overflow-style: none;
+            /* Internet Explorer 10+ */
+            scrollbar-width: none;
+        
+            /* Firefox */
+            &::-webkit-scrollbar {
+                display: none;
+            }
+                        /* width */
+                        &::-webkit-scrollbar {
+                            width: 20px;
+                        }
+            
+                        /* Track */
+                        &::-webkit-scrollbar-track {
+                            box-shadow: inset 0 0 5px grey;
+                            border-radius: 10px;
+                        }
+            
+                        /* Handle */
+                        &::-webkit-scrollbar-thumb {
+                            background: red;
+                            border-radius: 10px;
+                        }
+            
+                        /* Handle on hover */
+                        &::-webkit-scrollbar-thumb:hover {
+                            background: #b30000;
+                        }
+    
     }
 
     &_container {
         background-color: var(--bkg-color-container);
         color: var(--text-color);
         position: relative;
-        -ms-overflow-style: none;
-        /* Internet Explorer 10+ */
-        scrollbar-width: none;
-       
-
-        /* Firefox */
-        &::-webkit-scrollbar {
-            display: none;
-        }
         justify-content: center;
         align-items: center;
+            scrollbar-width: none;
+                -ms-overflow-style: none;
+                /* Internet Explorer 10+ */
+                scrollbar-width: none;
+            
+                /* Firefox */
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+        
     }
 
     &_body {
         font-family: sans-serif;
         background-color: var(--bkg-color);
         color: var(--text-color);
-        height: 100vh;
+        height: 100%;
         width: 100vw;
         margin: 0 auto;
         display: flex;
         flex-direction: column;
         position: relative;
         padding: 70px 40px 40px 40px;
+        scrollbar-width: none;
+            -ms-overflow-style: none;
+            /* Internet Explorer 10+ */
+            scrollbar-width: none;
+        
+            /* Firefox */
+            &::-webkit-scrollbar {
+                display: none;
+            }
 
         /* Medium devices (landscape tablets, 768px and up) */
         @media only screen and (min-width: 768px) {
@@ -57,12 +89,32 @@
     }
 
     &_title {
-        text-decoration: underline;
+        text-decoration: underline ;
         color: var(--vibrant-bkg);
         width: fit-content;
 
-        &_container{
-
-        }
+       
     }
+         &_link {
+             color: var(--vibrant-bkg);
+         }
+}
+
+.progress_bar {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: var(--vibrant-bkg);
+    transform-origin: 0%;
+    z-index: 12;
+    width: 100vw;
+    margin-left: auto;
+    margin-right: auto;
+
+    /* Medium devices (landscape tablets, 768px and up) */
+        @media only screen and (min-width: 768px) {
+            width: 80vw;
+        }
 }

@@ -73,8 +73,6 @@
 
     &_modal {
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
         background-color: var(--vibrant-bkg);
         font-family: var(--paragraph-font);
         color: var(--text-color);
@@ -82,9 +80,10 @@
         height: fit-content;
         padding: 15px;
         border-radius: 30px;
-        top: 80%;
+        top: 0;
         left: 0;
         right: 0;
+        bottom: 0;
         margin-left: auto;
         margin-right: auto;
         position: absolute;
@@ -220,6 +219,12 @@
     width: 100%;
     height: fit-content;
 
+    &_padding {
+        @extend .footer;
+
+        padding-top: 100px;
+    }
+
     &_text {
         font-family: var(--paragraph-font);
         color: #F5F5F5;
@@ -240,4 +245,8 @@
         color: var(--vibrant-bkg);
         font-family: var(--paragraph-font);
     }
+ }
+
+ .buffer {
+    padding: 50px;
  }

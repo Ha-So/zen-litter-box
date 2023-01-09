@@ -1,0 +1,22 @@
+{
+    "stars": [
+        { 
+            "id": "St2-18", 
+            "name": "Stephenson 2-18", 
+            "description": "Stephenson 2-18 is a red supergiant (RSG) or possible extreme red hypergiant (RHG) star in the constellation of Scutum.", 
+            "link": "https://en.wikipedia.org/wiki/Stephenson_2-18" 
+        },
+        { 
+            "id": "UY-SC", 
+            "name": "UY Scuti", 
+            "description": "UY Scuti is an extreme red hypergiant or red supergiant star in the constellation Scutum.", 
+            "link": "https://en.wikipedia.org/wiki/UY_Scuti"
+        },
+        { 
+            "id": "RSGC1", 
+            "name": "RSGC1-F01", 
+            "description": "RSGC1-F01 is a red supergiant located in the RSGC1 open cluster in the constellation of Scutum.", 
+            "link": "https://en.wikipedia.org/wiki/RSGC1-F01"
+        }
+    ]
+}

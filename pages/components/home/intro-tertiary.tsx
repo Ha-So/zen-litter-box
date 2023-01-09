@@ -1,31 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "../../../styles/Home.module.scss";
 import { GiFullFolder, GiSunrise, GiNotebook } from "react-icons/gi";
 import { FaCat } from "react-icons/fa";
-import { motion } from "framer-motion";
-import { InView } from "react-intersection-observer";
+import Footer from "../footer";
 
 interface IntroProps {
   reference: any;
 }
 
 export default function IntroTertiary({ reference }: IntroProps) {
-  // const { ref, inView, entry } = useInView({
-  //   /* Optional options */
-  //   threshold: 0,
-  //   trackVisibility: true,
-  // });
-
-  const [inView, setInView] = useState(false);
-
   const iconSize = 30;
-  const footerText = "I made this garden with a lot of love.";
-  const footerTextCoffee = "If you like it, I like ";
-  const footerTextGit = ". Checkout the code on my ";
-  const variants = {
-    open: { opacity: 0.7, y: 0, transition: { duration: 3 } },
-    closed: { opacity: 0, y: "-100%" },
-  };
 
   return (
     <div className={styles.sheet_body} ref={reference}>
@@ -54,36 +38,7 @@ export default function IntroTertiary({ reference }: IntroProps) {
             your eyes
           </li>
         </ul>
-        <InView onChange={setInView}>
-          {({ ref, inView }) => (
-            <motion.div
-              animate={inView ? "open" : "closed"}
-              variants={variants}
-              className={styles.footer}
-              ref={ref}
-            >
-              <div className={styles.footer_text}>
-                {footerText}
-                <span>&#128150; </span>
-                {footerTextCoffee}
-                <a
-                  className={styles.footer_link}
-                  href="https://www.buymeacoffee.com/harissocool"
-                >
-                  coffee
-                </a>
-                {footerTextGit}
-                <a
-                  className={styles.footer_link}
-                  href="https://github.com/Ha-So"
-                >
-                  GitHub
-                </a>
-                .
-              </div>
-            </motion.div>
-          )}
-        </InView>
+        <Footer />
       </div>
     </div>
   );

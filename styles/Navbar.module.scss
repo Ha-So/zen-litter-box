@@ -6,6 +6,7 @@
         flex-direction: row;
         flex-wrap: wrap;
         background-color: var(--bkg-color);
+        opacity: 90%;
         width: 80vw;
         height: 80px;
         top: 0;
@@ -15,6 +16,7 @@
         margin-right: auto;
         position: fixed;
         z-index: 10;
+        backdrop-filter: blur(6px);
 
         @media (max-width: 768px) {
                         width: 100vw;
@@ -136,3 +138,4 @@
     width: fit-content;
     background-color: var(--vibrant-bkg);
 }
+
