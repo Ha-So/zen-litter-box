@@ -250,3 +250,40 @@
  .buffer {
     padding: 50px;
  }
+
+ .navbar {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 31px;
+
+    &_container {
+        position: absolute;
+        z-index: 10;
+        top: 50%;
+        right: 0;
+        margin: auto;
+        margin-right: 10px;
+        transform: translateY(-50%);
+        pointer-events: none;
+
+            @media only screen and (max-width: 768px) {
+                    text-align: left;
+                }
+    }
+
+    &_indicators {
+        height: 10px;
+        width: 10px;
+        background-color: var(--text-color);
+        border-radius: 50%;
+        border: 1px rgb(0, 0, 0);
+        display: inline-block;
+
+        &_selected {
+            @extend .navbar_indicators;
+
+            background-color: var(--vibrant-bkg);
+        }
+    }
+ }

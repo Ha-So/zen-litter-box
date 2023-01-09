@@ -33,10 +33,10 @@ getDownloadURL(ref(storage, '1.md'))
     xhr.responseType = 'blob';
     xhr.onload = (event) => {
       const blob = xhr.response;
-    };
+      return blob;
+    }
     xhr.open('GET', url);
     xhr.send();
-
     // Or inserted into an <img> element
     // const img = document.getElementById('myimg');
     // img.setAttribute('src', url);

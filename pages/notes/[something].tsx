@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import path from "path";
 import fs from "fs/promises";
 import jsonData from "../../back-end-data/some-backend-data.json";
-import { fetchNotes, getAllNotes } from "../../firebase/notes-store";
+import { fetchNotes, getAllNotes, getMDFile } from "../../firebase/notes-store";
 import { Timestamp } from "firebase/firestore/lite";
 
 interface starInterface {
@@ -67,7 +67,8 @@ function projectPage(props: {
   if (router.isFallback) {
     return <h1>Loading...</h1>;
   }
-
+  const test = getMDFile();
+  console.log("test", test);
   return (
     <div>
       <h1>{props.specificStarData.title}</h1>

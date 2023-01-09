@@ -1,18 +1,34 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../../../styles/Home.module.scss";
-import { motion, useScroll, useSpring } from "framer-motion";
-import { FaRegThumbsUp, FaArrowCircleDown } from "react-icons/fa";
+import { motion } from "framer-motion";
 import { AiOutlineDown } from "react-icons/ai";
 import Typewriter from "typewriter-effect";
+import { useInView } from "react-intersection-observer";
 
 interface IntroProps {
   scrollReference: any;
+  setCurrentSection: (sectionIndex: number) => void;
 }
 
-export default function sheet({ scrollReference }: IntroProps) {
+export default function sheet({
+  scrollReference,
+  setCurrentSection,
+}: IntroProps) {
   const iconSize = 60;
+  const sectionIndex = 0;
   const [showCursor, setShowCursor] = useState(false);
   const [showScroll, setShowScroll] = useState(false);
+
+  const { ref, inView, entry } = useInView({
+    /* Optional options */
+    threshold: 0,
+  });
+
+  useEffect(() => {
+    if (inView) {
+      setCurrentSection(sectionIndex);
+    }
+  }, [inView]);
 
   const scroll = () => {
     scrollReference?.current.scrollIntoView();
@@ -31,6 +47,7 @@ export default function sheet({ scrollReference }: IntroProps) {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.5 }}
           className="intro-header"
+          ref={ref}
         >
           Hi.
         </motion.h1>
