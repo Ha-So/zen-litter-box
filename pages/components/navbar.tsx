@@ -5,7 +5,7 @@ import { GiFullFolder, GiSunrise, GiSunset, GiNotebook } from "react-icons/gi";
 import { MdOutlineMenuOpen, MdOutlineMenu } from "react-icons/md";
 import { FaCat } from "react-icons/fa";
 import { motion } from "framer-motion";
-import { getTotalNotes } from "../../firebase/notes-store";
+import { getTotalNotes, getSpecificTitle } from "../../firebase/notes-store";
 import { useRouter } from "next/router";
 
 interface NavbarProps {
@@ -18,10 +18,21 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
   const iconSize = 40;
   const isMobile = width < 768;
   const [showMenu, setShowMenu] = useState(false);
+  const [minushMessage, setMinushMessage] = useState("Minushka!");
+  const [showMinushkaResult, setShowMinushkaResult] = useState(false);
+
+  const router = useRouter();
 
   const handleMinushkaClick = async () => {
-    await returnRandomPage();
+    const total = await getTotalNotes();
+    const randomInt = getRandomArbitrary(1, total);
+    const data = await getSpecificTitle(randomInt.toString());
+    setMinushMessage(data);
+    router.push("/notes/" + randomInt);
     setShowMinushkaResult(true);
+    setTimeout(() => {
+      setShowMinushkaResult(false);
+    }, 3000);
   };
 
   const handleThemeClick = () => {
@@ -36,26 +47,14 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
   const getRandomArbitrary = (min: number, max: number) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   };
-  const [showMinushkaResult, setShowMinushkaResult] = useState(false);
 
   const variantsMinush = {
     open: { opacity: 1.0, y: 0, transition: { duration: 0.6 } },
     closed: { opacity: 0, y: "-200%", transition: { duration: 0.6 } },
   };
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setShowMinushkaResult(false);
-  //   }, 3000);
-  // }, [showMinushkaResult]);
-
   const variants = {
-    open: { opacity: 1.0, x: 0, transition: { duration: 2 } },
-    closed: { opacity: 0, x: "-100%", transition: { duration: 2 } },
-  };
-  const router = useRouter();
-  const returnRandomPage = async () => {
-    const total = await getTotalNotes();
-    router.push("/notes/" + getRandomArbitrary(1, 3));
+    open: { opacity: 1.0, x: 0, transition: { duration: 1 } },
+    closed: { opacity: 0, x: "-100%", transition: { duration: 1 } },
   };
 
   return (
@@ -73,13 +72,8 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
         variants={variantsMinush}
         initial={"closed"}
         className={styles.sheet_modal}
-        onAnimationComplete={() =>
-          setTimeout(() => {
-            setShowMinushkaResult(false);
-          }, 1000)
-        }
       >
-        Minushka found something!
+        {minushMessage}
       </motion.div>
       {isMobile && (
         <div className={styles.navbar_container_column_hamburger}>
@@ -110,7 +104,9 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
           </motion.span>
           <motion.span
             whileHover={{ scale: 1.2 }}
-            onClick={() => (!showMinushkaResult ? handleMinushkaClick() : null)}
+            onClick={async () =>
+              !showMinushkaResult ? await handleMinushkaClick() : null
+            }
           >
             <FaCat size={iconSize} />
           </motion.span>

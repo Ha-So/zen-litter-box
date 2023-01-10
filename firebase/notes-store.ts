@@ -28,6 +28,21 @@ export async function getTotalNotes() {
     return data.docs.length;
 }
 
+export async function getSpecificTitle(id: string) {
+    const response = collection(db, "notes");
+    const data = await getDocs(response);
+
+    let result = "Minushka found ";
+    data.docs.forEach((item, index) => {
+      console.log(item.data().id, id);
+      if(item.data().id === id){
+        result = result + item.data().title + "!";
+      }
+    });
+
+  return result;
+}
+
 
 export async function getMDFile() {
 const storage = getStorage();
