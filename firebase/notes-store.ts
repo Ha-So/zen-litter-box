@@ -22,6 +22,13 @@ export async function getAllNotes() {
   return jsonData;
 }
 
+export async function getTotalNotes() {
+    const response = collection(db, "notes");
+    const data = await getDocs(response);
+    return data.docs.length;
+}
+
+
 export async function getMDFile() {
 const storage = getStorage();
 getDownloadURL(ref(storage, '1.md'))

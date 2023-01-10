@@ -12,7 +12,7 @@ export default function Footer({ addBuffer }: FooterProps) {
   const [inView, setInView] = useState(false);
 
   const footerText = "I made this garden with a lot of love.";
-  const footerTextCoffee = "If you like it, I like ";
+  const footerTextCoffee = "If you like it, my cat Minushka likes ";
   const footerTextGit = ". Checkout the code on my ";
   const variants = {
     open: { opacity: 0.7, y: 0, transition: { duration: 3 } },
@@ -38,7 +38,7 @@ export default function Footer({ addBuffer }: FooterProps) {
                 className={styles.footer_link}
                 href="https://www.buymeacoffee.com/harissocool"
               >
-                coffee
+                treats
               </a>
               {footerTextGit}
               <a className={styles.footer_link} href="https://github.com/Ha-So">

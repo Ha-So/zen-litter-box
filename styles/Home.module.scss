@@ -1,5 +1,20 @@
-
 .sheet {
+
+    &_background {
+            background-color: var(--bkg-color);
+            color: var(--text-color);
+            overflow: hidden;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            /* Internet Explorer 10+ */
+            scrollbar-width: none;
+    
+            /* Firefox */
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+
     &_container {
         background-color: var(--bkg-color-container);
         color: var(--text-color);
@@ -56,39 +71,6 @@
             }
     }
 
-    &_background {
-        background-color: var(--bkg-color);
-        color: var(--text-color);
-        overflow: hidden;
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-        /* Internet Explorer 10+ */
-        scrollbar-width: none;
-
-        /* Firefox */
-        &::-webkit-scrollbar {
-            display: none;
-        }
-    }
-
-    &_modal {
-        display: flex;
-        background-color: var(--vibrant-bkg);
-        font-family: var(--paragraph-font);
-        color: var(--text-color);
-        width: fit-content;
-        height: fit-content;
-        padding: 15px;
-        border-radius: 30px;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        margin-left: auto;
-        margin-right: auto;
-        position: absolute;
-        z-index: 10;
-    }
 }
 
 .intro_icon {

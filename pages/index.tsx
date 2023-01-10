@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { useEffect, useState, useLayoutEffect, useRef, use } from "react";
 import styles from "../styles/Home.module.scss";
-import stylesNav from "../styles/Navbar.module.scss";
 import IntroSecondary from "./components/home/intro-secondary";
 import IntroTertiary from "./components/home/intro-tertiary";
 import Intro from "./components/home/intro";

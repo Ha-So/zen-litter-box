@@ -2,9 +2,11 @@ import { GetStaticProps, GetStaticPaths } from "next";
 import { useRouter } from "next/router";
 import path from "path";
 import fs from "fs/promises";
-import jsonData from "../../back-end-data/some-backend-data.json";
+import styles from "../../styles/Notes.module.scss";
+import jsonData from "../../backend-data/some-backend-data.json";
 import { fetchNotes, getAllNotes, getMDFile } from "../../firebase/notes-store";
 import { Timestamp } from "firebase/firestore/lite";
+import { motion, useScroll } from "framer-motion";
 
 interface starInterface {
   title: string;
@@ -15,7 +17,7 @@ interface starInterface {
 async function getData() {
   const filePath = path.join(
     process.cwd(),
-    "back-end-data",
+    "backend-data",
     "some-backend-data.json"
   );
   const fileData = await fs.readFile(filePath);
@@ -59,6 +61,7 @@ function projectPage(props: {
   hasError: boolean;
 }) {
   const router = useRouter();
+  const { scrollYProgress } = useScroll();
 
   if (props.hasError) {
     return <h1>Error - please try another parameter</h1>;
@@ -67,13 +70,21 @@ function projectPage(props: {
   if (router.isFallback) {
     return <h1>Loading...</h1>;
   }
-  const test = getMDFile();
-  console.log("test", test);
   return (
-    <div>
-      <h1>{props.specificStarData.title}</h1>
-      <p>{props.specificStarData.body}</p>
-      <a href={props.specificStarData.id}>More Information here (link)</a>
+    <div className={styles.sheet_background}>
+      <div className={styles.sheet_container}>
+        <motion.div
+          className={styles.progress_bar}
+          style={{ scaleX: scrollYProgress }}
+        />
+        <div className={styles.sheet_body}>
+          <div>
+            <h2>{props.specificStarData.title}</h2>
+            <p>{props.specificStarData.body}</p>
+            <a href={props.specificStarData.id}>More Information here (link)</a>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

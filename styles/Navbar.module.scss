@@ -139,3 +139,22 @@
     background-color: var(--vibrant-bkg);
 }
 
+.sheet_modal {
+    display: flex;
+    background-color: var(--vibrant-bkg);
+    font-family: var(--paragraph-font);
+    color: var(--text-color);
+    width: fit-content;
+    height: fit-content;
+    padding: 15px;
+    border-radius: 30px;
+    top: 100px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    z-index: 10;
+}
+

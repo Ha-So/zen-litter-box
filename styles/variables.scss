@@ -25,6 +25,7 @@ $mobile-breakpoint: 44.9375rem; // 719px
     monospace;
   --martian-mono: "Martian Mono";
   --vibrant-bkg-aqua: rgba(62, 220, 164, 255);
+  --vibrant-bkg-orange: #fa6305;
   --paragraph-font: var(--harmattan);
   --bkg-color: var(--bkg-color-dark);
 }
@@ -48,7 +49,7 @@ $mobile-breakpoint: 44.9375rem; // 719px
   --box-shadow: var(--box-shadow-light);
   --line-gradient: var(--line-gradient-light);
   --header-font: var(--fredoka-one);
-  --vibrant-bkg: var(--vibrant-bkg-aqua);
+  --vibrant-bkg: var(--vibrant-bkg-orange);
 }
   
 
@@ -60,7 +61,7 @@ $mobile-breakpoint: 44.9375rem; // 719px
     --box-shadow: var(--box-shadow-dark);
     --line-gradient: var(--line-gradient-dark);
     --header-font: var(--fredoka-one);
-    --vibrant-bkg: var(--vibrant-bkg-aqua);
+    --vibrant-bkg: var(--vibrant-bkg-orange);
   }
 }
 
@@ -71,7 +72,7 @@ $mobile-breakpoint: 44.9375rem; // 719px
   --box-shadow: var(--box-shadow-dark);
   --line-gradient: var(--line-gradient-dark);
   --header-font: var(--fredoka-one);
-  --vibrant-bkg: var(--vibrant-bkg-aqua);
+  --vibrant-bkg: var(--vibrant-bkg-orange);
 }
 
 
