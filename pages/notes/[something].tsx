@@ -1,4 +1,5 @@
 import { GetStaticProps, GetStaticPaths } from "next";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import path from "path";
 import fs from "fs/promises";
@@ -6,7 +7,10 @@ import styles from "../../styles/Notes.module.scss";
 import jsonData from "../../backend-data/some-backend-data.json";
 import { fetchNotes, getAllNotes, getMDFile } from "../../firebase/notes-store";
 import { Timestamp } from "firebase/firestore/lite";
-import { motion, useScroll } from "framer-motion";
+import { motion, useScroll, useUnmountEffect } from "framer-motion";
+import ReactMarkdown from "react-markdown";
+import test from "../../backend-data/1.md";
+import remarkGfm from "remark-gfm";
 
 interface starInterface {
   title: string;
@@ -62,7 +66,12 @@ function projectPage(props: {
 }) {
   const router = useRouter();
   const { scrollYProgress } = useScroll();
-
+  const [markDownText, setMarkDownText] = useState("");
+  useEffect(() => {
+    fetch(test)
+      .then((res) => res.text())
+      .then((text) => setMarkDownText(text));
+  });
   if (props.hasError) {
     return <h1>Error - please try another parameter</h1>;
   }
@@ -78,11 +87,12 @@ function projectPage(props: {
           style={{ scaleX: scrollYProgress }}
         />
         <div className={styles.sheet_body}>
-          <div>
+          <ReactMarkdown children={markDownText} remarkPlugins={[remarkGfm]} />
+          {/* <div>
             <h2>{props.specificStarData.title}</h2>
             <p>{props.specificStarData.body}</p>
             <a href={props.specificStarData.id}>More Information here (link)</a>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
