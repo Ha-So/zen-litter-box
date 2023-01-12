@@ -3,6 +3,7 @@ import db from "../../utils/db";
 import styles from "../../styles/Notes.module.scss";
 import NotesContents from "../../components/notes/notes-contents";
 import { motion, useScroll } from "framer-motion";
+import Head from "next/head";
 
 const Notes = (props) => {
   const { entriesData } = props;
@@ -10,6 +11,9 @@ const Notes = (props) => {
 
   return (
     <div className={styles.sheet_background}>
+      <Head>
+        <title>Zen Litter Box</title>
+      </Head>
       <div className={styles.sheet_container}>
         <motion.div
           className={styles.progress_bar}

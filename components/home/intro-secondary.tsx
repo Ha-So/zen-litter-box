@@ -29,7 +29,7 @@ export default function IntroSecondary({
     if (inView) {
       setCurrentSection(sectionIndex);
     }
-  }, [inView]);
+  }, [inView, setCurrentSection]);
 
   return (
     <div className={styles.sheet_body}>
@@ -40,9 +40,10 @@ export default function IntroSecondary({
         <div className={styles.intro_secondary_container_quote} ref={ref}>
           <hr className={styles.intro_secondary_container_quote_line} />
           <p>
-            The phrase "digital garden" is a metaphor for thinking about writing
-            and creating that focuses less on the resulting "showpiece" and more
-            on the process, care, and craft it takes to get there.
+            The phrase &ldquo;digital garden&rdquo; is a metaphor for thinking
+            about writing and creating that focuses less on the resulting
+            &ldquo;showpiece&rdquo; and more on the process, care, and craft it
+            takes to get there.
           </p>
           -{" "}
           <a className={styles.footer_link} href="https://twitter.com/jhooks">

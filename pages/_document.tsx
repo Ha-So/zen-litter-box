@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
+import Coffee from "../components/coffee";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: any) {
@@ -9,26 +10,14 @@ class MyDocument extends Document {
   render() {
     return (
       <Html>
+        <Coffee />
         <Head>
-          <title>Zen Litter Box</title>
           <meta
             name="description"
             content="My personal blog and portfolio site"
           />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" href="/favicon.ico" />
-          <script
-            data-name="BMC-Widget"
-            data-cfasync="false"
-            src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
-            data-id="harissocool"
-            data-description="Support me on Buy me a coffee!"
-            data-message="Meow"
-            data-color="#FF813F"
-            data-position="Right"
-            data-x_margin="18"
-            data-y_margin="18"
-          ></script>
         </Head>
         <body>
           <Main />

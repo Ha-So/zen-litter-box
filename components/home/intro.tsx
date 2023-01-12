@@ -29,7 +29,7 @@ export default function Sheet({
     if (inView) {
       setCurrentSection(sectionIndex);
     }
-  }, [inView]);
+  }, [inView, setCurrentSection]);
 
   const scroll = () => {
     scrollReference?.current.scrollIntoView();
