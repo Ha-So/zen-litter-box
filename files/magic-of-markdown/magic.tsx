@@ -26,7 +26,7 @@ export default function Magic() {
           A framework like Next.js attempts to shove the mess of wires behind
           the desk, which is awesome for easy development. However, in cases
           like this that abstraction can cause issues when you need to customize
-          your application to for example open MDX files. Here we are missing
+          your application, like the need to open MDX files. Here we are missing
           the webpack loader neccesary to convert the mdx files to an output in
           JavaScript.
         </p>
@@ -59,9 +59,16 @@ export default function Magic() {
           theme={anOldHope}
           wrapLines={true}
         />
-        <Link href="https://nextjs.org/docs/advanced-features/using-mdx">
-          But don't take my word for it, check out the detailed solution here.
-        </Link>
+        <p>
+          But don't take my word for it, check out the detailed solution{" "}
+          <a
+            className={styles.md_link}
+            href="https://nextjs.org/docs/advanced-features/using-mdx"
+          >
+            here
+          </a>
+          .
+        </p>
       </div>
     </article>
   );
