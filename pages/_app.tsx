@@ -2,7 +2,7 @@ import "../styles/globals.scss";
 import React, { useEffect, useState } from "react";
 import type { AppProps } from "next/app";
 import useLocalStorage from "use-local-storage";
-import Navbar from "./components/navbar";
+import Navbar from "../components/navbar";
 
 export default function App({ Component, pageProps }: AppProps) {
   // const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;

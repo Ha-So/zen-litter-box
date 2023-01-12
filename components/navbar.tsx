@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import styles from "../../styles/Navbar.module.scss";
+import styles from "../styles/Navbar.module.scss";
 import Link from "next/link";
 import { GiFullFolder, GiSunrise, GiSunset, GiNotebook } from "react-icons/gi";
 import { MdOutlineMenuOpen, MdOutlineMenu } from "react-icons/md";
 import { FaCat } from "react-icons/fa";
 import { motion } from "framer-motion";
-import { getTotalNotes, getSpecificTitle } from "../../firebase/notes-store";
+// import { getTotalNotes, getSpecificTitle } from "../dummy/firebase/notes-store";
 import { useRouter } from "next/router";
 
 interface NavbarProps {
@@ -24,10 +24,12 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
   const router = useRouter();
 
   const handleMinushkaClick = async () => {
-    const total = await getTotalNotes();
+    // const total = await getTotalNotes();
+    const total = 1;
+    const data = 1;
     const randomInt = getRandomArbitrary(1, total);
-    const data = await getSpecificTitle(randomInt.toString());
-    setMinushMessage(data);
+    // const data = await getSpecificTitle(randomInt.toString());
+    setMinushMessage(data.toString());
     router.push("/notes/" + randomInt);
     setShowMinushkaResult(true);
     setTimeout(() => {

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from "../../../styles/Home.module.scss";
+import styles from "../../styles/Home.module.scss";
 import { motion } from "framer-motion";
 import { AiOutlineDown } from "react-icons/ai";
 import Typewriter from "typewriter-effect";

@@ -1,20 +1,14 @@
-import styles from "../../../styles/Notes.module.scss";
-import { fetchNotes } from "../../../firebase/notes-store";
+import styles from "../../styles/Notes.module.scss";
 import { DocumentData } from "firebase/firestore/lite";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, useScroll } from "framer-motion";
 import Footer from "../footer";
 
-function NotesContents() {
-  const [notes, setNotes] = useState<DocumentData[]>([]);
-  useEffect(() => {
-    fetchNotes(notes, setNotes);
-  }, []);
-
-  setTimeout(() => {
-    console.log("notes", notes);
-  }, 5000);
+export interface NotesContentsProps {
+  entriesData: Array<any>;
+}
+function NotesContents({ entriesData }: NotesContentsProps) {
   return (
     <div className={styles.sheet_body}>
       <motion.h2
@@ -31,20 +25,18 @@ function NotesContents() {
         transition={{ duration: 1.5, delay: 0.5 }}
         className={styles.notes_container}
       >
-        {notes &&
-          notes.map((blog, index) => {
-            return (
-              <motion.div
-                key={index}
-                whileHover={{ x: "15%" }}
-                className={styles.notes_title}
-              >
-                <Link href={"/notes/" + blog.id}>
-                  <p className={styles.notes_link}>{blog.title}</p>
-                </Link>
-              </motion.div>
-            );
-          })}
+        {entriesData.map((entry: any, index) => (
+          <div key={entry.id}>
+            <motion.div
+              key={index}
+              whileHover={{ x: "15%" }}
+              className={styles.notes_title}
+            >
+              <Link href={`/notes/${entry.slug}`}>{entry.title}</Link>
+            </motion.div>
+            <br />
+          </div>
+        ))}
       </motion.div>
       <Footer addBuffer={true} />
     </div>

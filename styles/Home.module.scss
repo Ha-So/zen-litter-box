@@ -226,6 +226,10 @@
         text-decoration: underline;
         color: var(--vibrant-bkg);
         font-family: var(--paragraph-font);
+
+        &:hover {
+            opacity: 70%;
+        }
     }
  }
 

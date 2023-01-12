@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../../styles/Home.module.scss";
+import styles from "../styles/Home.module.scss";
 import { motion } from "framer-motion";
 import { InView } from "react-intersection-observer";
 import Buffer from "./buffer";
