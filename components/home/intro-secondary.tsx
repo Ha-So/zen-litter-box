@@ -1,28 +1,43 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "../../styles/Home.module.scss";
 import { AiOutlineDown } from "react-icons/ai";
 import { motion } from "framer-motion";
+import { InView, useInView } from "react-intersection-observer";
 
 interface IntroProps {
   reference: any;
   scrollReference: any;
+  setCurrentSection: (sectionIndex: number) => void;
 }
 
 export default function IntroSecondary({
   reference,
   scrollReference,
+  setCurrentSection,
 }: IntroProps) {
   const iconSize = 60;
+  const sectionIndex = 1;
   const scroll = () => {
     scrollReference?.current.scrollIntoView();
   };
+  const { ref, inView, entry } = useInView({
+    /* Optional options */
+    threshold: 0,
+  });
+
+  useEffect(() => {
+    if (inView) {
+      setCurrentSection(sectionIndex);
+    }
+  }, [inView]);
+
   return (
     <div className={styles.sheet_body}>
       <div className={styles.intro_secondary_container}>
         <h2 className={styles.intro_secondary_container_title} ref={reference}>
           What is a digital garden?
         </h2>
-        <div className={styles.intro_secondary_container_quote}>
+        <div className={styles.intro_secondary_container_quote} ref={ref}>
           <hr className={styles.intro_secondary_container_quote_line} />
           <p>
             The phrase "digital garden" is a metaphor for thinking about writing
