@@ -273,3 +273,14 @@
         }
     }
  }
+
+ .link {
+    font-family: var(--header-font);
+    text-decoration: underline;
+    color: var(--vibrant-bkg);
+
+    &:hover {
+        opacity: 70%;
+    }
+
+ }

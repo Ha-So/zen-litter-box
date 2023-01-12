@@ -5,7 +5,6 @@ import { GiFullFolder, GiSunrise, GiSunset, GiNotebook } from "react-icons/gi";
 import { MdOutlineMenuOpen, MdOutlineMenu } from "react-icons/md";
 import { FaCat } from "react-icons/fa";
 import { motion } from "framer-motion";
-// import { getTotalNotes, getSpecificTitle } from "../dummy/firebase/notes-store";
 import { useRouter } from "next/router";
 
 interface NavbarProps {
@@ -18,16 +17,26 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
   const iconSize = 40;
   const isMobile = width < 768;
   const [showMenu, setShowMenu] = useState(false);
-  const [minushMessage, setMinushMessage] = useState("Minushka!");
+  const [minushMessage, setMinushMessage] = useState(
+    "Minushka is currently napping!"
+  );
   const [showMinushkaResult, setShowMinushkaResult] = useState(false);
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState();
 
   const router = useRouter();
 
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     console.log("res1");
+  //     const res = await fetch("http://localhost:3000/api/entry");
+  //     const data = await res.json();
+  //     console.log("res", res);
+  //     setNotes(data);
+  //   }
+  //   fetchData();
+  // }, []);
   const handleMinushkaClick = async () => {
-    const result = await getRandomNotes();
-
-    console.log("result", result);
+    console.log("notes1", notes);
     // const total = await getTotalNotes();
     // const total = 1;
     // const data = 1;
@@ -38,7 +47,7 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
     setShowMinushkaResult(true);
     setTimeout(() => {
       setShowMinushkaResult(false);
-    }, 3000);
+    }, 2000);
   };
 
   const handleThemeClick = () => {
@@ -185,20 +194,3 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
     </div>
   );
 }
-
-export const getStaticProps = async () => {
-  const entries = await db
-    .collection("entries")
-    .orderBy("created", "asc")
-    .get();
-  console.log(entries);
-  const entriesData = entries.docs.map((entry) => ({
-    ...entry.data(),
-    id: entry.id,
-    created: null,
-  }));
-  return {
-    props: { entriesData },
-    revalidate: 10,
-  };
-};

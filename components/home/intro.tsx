@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { AiOutlineDown } from "react-icons/ai";
 import Typewriter from "typewriter-effect";
 import { useInView } from "react-intersection-observer";
+import Link from "next/link";
 
 interface IntroProps {
   scrollReference: any;
@@ -60,7 +61,11 @@ export default function sheet({
             waitForAnimation();
           }}
         >
-          My name is Haris. <br /> And this is my zen litter box.
+          My name is Haris. <br /> And this is my{" "}
+          <Link className={styles.link} href="/notes/about-this-garden">
+            zen litter box
+          </Link>
+          .
         </motion.h2>
         {showCursor && (
           <div className={styles.paragraph_breaks_intro}>
