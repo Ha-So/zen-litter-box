@@ -17,7 +17,6 @@ const serviceConfig = {
 
 if (!admin.apps.length) {
   try {
-    console.log("service", serviceConfig);
     admin.initializeApp({
       credential: admin.credential.cert(serviceConfig),
     });
