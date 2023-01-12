@@ -11,7 +11,7 @@ interface IntroProps {
   setCurrentSection: (sectionIndex: number) => void;
 }
 
-export default function sheet({
+export default function Sheet({
   scrollReference,
   setCurrentSection,
 }: IntroProps) {
