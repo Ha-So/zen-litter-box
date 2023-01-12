@@ -2,11 +2,20 @@ import { useRouter } from "next/router";
 import db from "../../utils/db";
 import { useScroll, motion } from "framer-motion";
 import styles from "../../styles/Notes.module.scss";
+import { MDXProvider } from "@mdx-js/react";
+import Test from "../../files/test-title.mdx";
 
 const Post = (props) => {
   const { entry } = props;
   const router = useRouter();
   const { scrollYProgress } = useScroll();
+  let body = "no data";
+  let markdown = "no markdown data";
+  // fetch(test)
+  //   .then((r) => r.text())
+  //   .then((text) => {
+  //     body = text;
+  //   });
   if (router.isFallback) {
     return <div>loading</div>;
   } else {
@@ -20,11 +29,14 @@ const Post = (props) => {
                 style={{ scaleX: scrollYProgress }}
               />
               <div className={styles.sheet_body}>
-                {/* <ReactMarkdown children={markDownText} remarkPlugins={[remarkGfm]} /> */}
                 <div>
+                  <MDXProvider>
+                    <Test />
+                  </MDXProvider>
                   <h2>{entry.title}</h2>
                   <p>{entry.body}</p>
                   <a href={entry.id}>{entry.id}</a>
+                  {body}
                 </div>
               </div>
             </div>

@@ -11,8 +11,11 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@mdx-js/loader": "^2.2.1",
     "@mdx-js/mdx": "^2.2.1",
+    "@mdx-js/react": "^2.2.1",
     "@next/font": "13.1.1",
+    "@next/mdx": "^13.1.1",
     "@types/node": "18.11.18",
     "@types/react": "18.0.26",
     "@types/react-dom": "18.0.10",
