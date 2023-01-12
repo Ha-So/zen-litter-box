@@ -62,6 +62,20 @@
         scroll-snap-align: center;
         overflow: hidden;
         padding: 70px 40px 40px 40px;
+
+        &_end {
+            @extend .sheet_body;
+
+            height: 100vh;
+            overflow-y: hidden;
+         
+
+            /* Medium devices (landscape tablets, 768px and up) */
+                @media only screen and (max-width: 768px) {
+                    // height: fit-content;
+                    //     overflow-y: scroll;
+                }
+        }
      
 
 
@@ -172,6 +186,11 @@
 
     &_title {
         text-align: left;
+
+        @media only screen and (max-height: 650px) {
+                margin-top: 10px;
+            }
+
     }
 
     &_quote {
@@ -200,6 +219,15 @@
     opacity: 30%;
     width: 100%;
     height: fit-content;
+
+    &_x {
+        position: absolute;
+        z-index: 5;
+        right: 15px;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+    }
 
     &_padding {
         @extend .footer;
