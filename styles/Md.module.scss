@@ -1,0 +1,12 @@
+.md_container {
+    font-family: sans-serif;
+    background-color: var(--bkg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-wrap: wrap;
+    word-break: break-word;
+}
+
+.md_header {
+    padding-top: 20px;
+}

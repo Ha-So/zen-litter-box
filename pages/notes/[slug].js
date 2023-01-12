@@ -3,14 +3,27 @@ import db from "../../utils/db";
 import { useScroll, motion } from "framer-motion";
 import styles from "../../styles/Notes.module.scss";
 import { MDXProvider } from "@mdx-js/react";
-import Test from "../../files/test-title.mdx";
+import About from "../../files/about-this-garden/about-this-garden.mdx";
+import Magic from "../../files/magic-of-markdown/magic-of-markdown.mdx";
+import { useState, useEffect } from "react";
+import Markdown from "markdown-to-jsx";
+import Footer from "../../components/footer";
 
 const Post = (props) => {
   const { entry } = props;
+  const [postContent, setPostcontent] = useState("");
   const router = useRouter();
   const { scrollYProgress } = useScroll();
   let body = "no data";
   let markdown = "no markdown data";
+  // useEffect(() => {
+  //   import("../../files/test-title.mdx").then((res) =>
+  //     fetch(res.default)
+  //       .then((response) => response.text())
+  //       .then((response) => setPostcontent(response))
+  //       .catch((err) => console.log(err))
+  //   );
+  // }, []);
   // fetch(test)
   //   .then((r) => r.text())
   //   .then((text) => {
@@ -23,21 +36,21 @@ const Post = (props) => {
       return (
         <div>
           <div className={styles.sheet_background}>
-            <div className={styles.sheet_container}>
+            <div className={styles.sheet_container_mdx}>
               <motion.div
                 className={styles.progress_bar}
                 style={{ scaleX: scrollYProgress }}
               />
-              <div className={styles.sheet_body}>
-                <div>
-                  <MDXProvider>
-                    <Test />
-                  </MDXProvider>
-                  <h2>{entry.title}</h2>
+              <div className={styles.sheet_body_mdx}>
+                {/* <Markdown>{postContent}</Markdown> */}
+                <MDXProvider>
+                  {entry?.slug == "about-this-garden" ? <About /> : <Magic />}
+                </MDXProvider>
+                {/* <h2>{entry.title}</h2>
                   <p>{entry.body}</p>
                   <a href={entry.id}>{entry.id}</a>
-                  {body}
-                </div>
+                  {body} */}
+                <Footer addBuffer={true} />
               </div>
             </div>
           </div>

@@ -20,17 +20,21 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
   const [showMenu, setShowMenu] = useState(false);
   const [minushMessage, setMinushMessage] = useState("Minushka!");
   const [showMinushkaResult, setShowMinushkaResult] = useState(false);
+  const [notes, setNotes] = useState([]);
 
   const router = useRouter();
 
   const handleMinushkaClick = async () => {
+    const result = await getRandomNotes();
+
+    console.log("result", result);
     // const total = await getTotalNotes();
-    const total = 1;
-    const data = 1;
-    const randomInt = getRandomArbitrary(1, total);
+    // const total = 1;
+    // const data = 1;
+    // const randomInt = getRandomArbitrary(1, total);
     // const data = await getSpecificTitle(randomInt.toString());
-    setMinushMessage(data.toString());
-    router.push("/notes/" + randomInt);
+    // setMinushMessage(result ? result?.title : "Minushka is currently napping!");
+    // router.push("/notes/" + result?.title);
     setShowMinushkaResult(true);
     setTimeout(() => {
       setShowMinushkaResult(false);
@@ -44,10 +48,6 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
 
   const handleMenuClick = () => {
     setShowMenu(!showMenu);
-  };
-
-  const getRandomArbitrary = (min: number, max: number) => {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
   };
 
   const variantsMinush = {
@@ -185,3 +185,20 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
     </div>
   );
 }
+
+export const getStaticProps = async () => {
+  const entries = await db
+    .collection("entries")
+    .orderBy("created", "asc")
+    .get();
+  console.log(entries);
+  const entriesData = entries.docs.map((entry) => ({
+    ...entry.data(),
+    id: entry.id,
+    created: null,
+  }));
+  return {
+    props: { entriesData },
+    revalidate: 10,
+  };
+};
