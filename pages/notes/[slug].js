@@ -5,30 +5,13 @@ import styles from "../../styles/Notes.module.scss";
 import { MDXProvider } from "@mdx-js/react";
 import About from "../../files/about-this-garden/about-this-garden.mdx";
 import Magic from "../../files/magic-of-markdown/magic-of-markdown.mdx";
-import { useState, useEffect } from "react";
-import Markdown from "markdown-to-jsx";
 import Footer from "../../components/footer";
 
 const Post = (props) => {
   const { entry } = props;
-  const [postContent, setPostcontent] = useState("");
   const router = useRouter();
   const { scrollYProgress } = useScroll();
-  let body = "no data";
-  let markdown = "no markdown data";
-  // useEffect(() => {
-  //   import("../../files/test-title.mdx").then((res) =>
-  //     fetch(res.default)
-  //       .then((response) => response.text())
-  //       .then((response) => setPostcontent(response))
-  //       .catch((err) => console.log(err))
-  //   );
-  // }, []);
-  // fetch(test)
-  //   .then((r) => r.text())
-  //   .then((text) => {
-  //     body = text;
-  //   });
+
   if (router.isFallback) {
     return <div>loading</div>;
   } else {

@@ -1,4 +1,3 @@
-
 .navbar_container {
 
     &_row {
@@ -19,8 +18,8 @@
         backdrop-filter: blur(6px);
 
         @media (max-width: 768px) {
-                        width: 100vw;
-            }
+            width: 100vw;
+        }
     }
 
     &_icons {
@@ -29,10 +28,10 @@
         padding-right: 40px;
         gap: 30px;
         padding-bottom: 0px;
-   
-        
+
+
         &_hover {
-         cursor: pointer;
+            cursor: pointer;
         }
     }
 
@@ -92,29 +91,30 @@
         margin-left: auto;
         margin-right: auto;
         top: 0px;
+
         @media (max-width: 768px) {
             margin: 0 auto;
         }
 
         &_icon {
-        cursor: pointer;
-        width: fit-content;
-        display: flex;
-        margin-top: 25px;
-        margin-right: auto;
-        margin-left: 40px;
-        gap: 20px;
-        top: 80px;
-        color: var(--text-color);
-    
-        // @media (max-width: 768px) {
-        //     margin: 0 auto;
-        // }
+            cursor: pointer;
+            width: fit-content;
+            display: flex;
+            margin-top: 25px;
+            margin-right: auto;
+            margin-left: 40px;
+            gap: 20px;
+            top: 80px;
+            color: var(--text-color);
+
+            // @media (max-width: 768px) {
+            //     margin: 0 auto;
+            // }
 
         }
 
     }
-    
+
 }
 
 .line {
@@ -157,4 +157,3 @@
     position: absolute;
     z-index: 10;
 }
-

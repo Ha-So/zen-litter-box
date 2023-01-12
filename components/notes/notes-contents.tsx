@@ -1,8 +1,7 @@
 import styles from "../../styles/Notes.module.scss";
-import { DocumentData } from "firebase/firestore/lite";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Link from "next/link";
-import { motion, useScroll } from "framer-motion";
+import { motion } from "framer-motion";
 import Footer from "../footer";
 
 export interface NotesContentsProps {

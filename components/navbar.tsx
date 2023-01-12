@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "../styles/Navbar.module.scss";
 import Link from "next/link";
 import { GiFullFolder, GiSunrise, GiSunset, GiNotebook } from "react-icons/gi";
@@ -25,24 +25,7 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
 
   const router = useRouter();
 
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     console.log("res1");
-  //     const res = await fetch("http://localhost:3000/api/entry");
-  //     const data = await res.json();
-  //     console.log("res", res);
-  //     setNotes(data);
-  //   }
-  //   fetchData();
-  // }, []);
   const handleMinushkaClick = async () => {
-    // const total = await getTotalNotes();
-    // const total = 1;
-    // const data = 1;
-    // const randomInt = getRandomArbitrary(1, total);
-    // const data = await getSpecificTitle(randomInt.toString());
-    // setMinushMessage(result ? result?.title : "Minushka is currently napping!");
-    // router.push("/notes/" + result?.title);
     setShowMinushkaResult(true);
     setTimeout(() => {
       setShowMinushkaResult(false);

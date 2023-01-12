@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import styles from "../../styles/Home.module.scss";
 import { AiOutlineDown } from "react-icons/ai";
 import { motion } from "framer-motion";
-import { InView, useInView } from "react-intersection-observer";
+import { useInView } from "react-intersection-observer";
 
 interface IntroProps {
   reference: any;
