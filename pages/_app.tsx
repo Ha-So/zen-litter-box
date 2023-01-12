@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import type { AppProps } from "next/app";
 import useLocalStorage from "use-local-storage";
 import Navbar from "../components/navbar";
+import Head from "next/head";
 
 export default function App({ Component, pageProps }: AppProps) {
   // const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -15,7 +16,7 @@ export default function App({ Component, pageProps }: AppProps) {
         ? "dark"
         : "light"
     );
-  }, []);
+  }, [setTheme]);
 
   const updateTheme = (newTheme: string) => {
     setTheme(newTheme);
@@ -34,6 +35,9 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <div data-theme={theme}>
+      <Head>
+        <title>Zen Litter Box</title>
+      </Head>
       <Navbar width={width} setTheme={updateTheme} theme={theme} />
       <Component
         {...pageProps}

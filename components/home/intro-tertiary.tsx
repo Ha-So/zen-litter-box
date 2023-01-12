@@ -25,7 +25,7 @@ export default function IntroTertiary({
     if (inView) {
       setCurrentSection(sectionIndex);
     }
-  }, [inView]);
+  }, [inView, setCurrentSection]);
 
   return (
     <div className={styles.sheet_body} ref={reference}>
