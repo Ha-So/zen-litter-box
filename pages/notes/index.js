@@ -30,7 +30,7 @@ export const getStaticProps = async () => {
     .collection("entries")
     .orderBy("created", "asc")
     .get();
-  const entriesData = entries.docs.map((entry) => ({
+  const entriesData = entries.docs?.map((entry) => ({
     ...entry.data(),
     id: entry.id,
     created: null,
