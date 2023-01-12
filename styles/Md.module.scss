@@ -10,3 +10,14 @@
 .md_header {
     padding-top: 20px;
 }
+
+.md_link {
+     font-family: var(--paragraph-font);
+     text-decoration: underline;
+     color: var(--vibrant-bkg);
+        display: inline;
+     &:hover {
+         opacity: 70%;
+     }
+
+ }

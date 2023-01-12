@@ -7,7 +7,7 @@ import { motion, useScroll } from "framer-motion";
 const Notes = (props) => {
   const { entriesData } = props;
   const { scrollYProgress } = useScroll();
-  console.log(entriesData);
+
   return (
     <div className={styles.sheet_background}>
       <div className={styles.sheet_container}>
@@ -26,7 +26,6 @@ export const getStaticProps = async () => {
     .collection("entries")
     .orderBy("created", "asc")
     .get();
-  console.log(entries);
   const entriesData = entries.docs.map((entry) => ({
     ...entry.data(),
     id: entry.id,

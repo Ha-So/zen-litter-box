@@ -36,7 +36,6 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
   //   fetchData();
   // }, []);
   const handleMinushkaClick = async () => {
-    console.log("notes1", notes);
     // const total = await getTotalNotes();
     // const total = 1;
     // const data = 1;
