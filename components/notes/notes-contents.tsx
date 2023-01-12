@@ -25,7 +25,7 @@ function NotesContents({ entriesData }: NotesContentsProps) {
         transition={{ duration: 1.5, delay: 0.5 }}
         className={styles.notes_container}
       >
-        {entriesData.map((entry: any, index) => (
+        {entriesData?.map((entry: any, index) => (
           <div key={entry.id}>
             <motion.div
               key={index}

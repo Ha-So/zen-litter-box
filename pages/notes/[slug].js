@@ -64,7 +64,7 @@ const Post = (props) => {
 
 export const getStaticPaths = async () => {
   const entries = await db.collection("entries").get();
-  const paths = entries.docs.map((entry) => ({
+  const paths = entries.docs?.map((entry) => ({
     params: {
       slug: entry.data().slug,
     },
@@ -78,7 +78,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
   const { slug } = context.params;
   const res = await db.collection("entries").where("slug", "==", slug).get();
-  const entry = res.docs.map((entry) => ({
+  const entry = res.docs?.map((entry) => ({
     ...entry.data(),
     id: entry.id,
     created: null,

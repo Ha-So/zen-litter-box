@@ -4,6 +4,7 @@ import styles from "../styles/Home.module.scss";
 import IntroSecondary from "../components/home/intro-secondary";
 import IntroTertiary from "../components/home/intro-tertiary";
 import Intro from "../components/home/intro";
+import Coffee from "../components/coffee";
 
 export interface HomeProps {
   width: number;
@@ -25,6 +26,7 @@ export default function Home({ width }: HomeProps) {
 
   return (
     <div className={styles.sheet_background}>
+      {/* <Coffee /> */}
       <div className={styles.sheet_container}>
         <Intro
           scrollReference={introSecondary}
@@ -42,7 +44,7 @@ export default function Home({ width }: HomeProps) {
       </div>
       <div className={styles.navbar_container}>
         <ul className={styles.navbar}>
-          {Array.from(Array(totalSections)).map((_, i) => (
+          {Array?.from(Array(totalSections))?.map((_, i) => (
             <li key={i} className={getIndicatorClass(i)}></li>
           ))}
         </ul>

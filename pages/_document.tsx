@@ -1,5 +1,4 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
-import Coffee from "../components/coffee";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: any) {
@@ -10,7 +9,6 @@ class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Coffee />
         <Head>
           <meta
             name="description"
