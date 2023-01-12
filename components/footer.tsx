@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { InView } from "react-intersection-observer";
 import Buffer from "./buffer";
 import { GoEyeClosed } from "react-icons/go";
-import { FaRegBell } from "react-icons/fa";
 
 export interface FooterProps {
   addBuffer?: boolean;
