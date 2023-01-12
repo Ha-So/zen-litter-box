@@ -30,31 +30,30 @@ export default function IntroTertiary({
   return (
     <div className={styles.sheet_body} ref={reference}>
       <div className={styles.intro_secondary_container}>
-        <h2 className={styles.intro_secondary_container_title} ref={ref}>
+        <h2 className={styles.intro_tertiary_container_title} ref={ref}>
           Garden Legend
         </h2>
         <ul className={styles.space_list}>
           <li>
-            <GiNotebook size={iconSize} /> - A collection of notes, snippets and
+            <GiNotebook size={iconSize} /> - A collection of notes and
             interactions
           </li>
           <li>
             {" "}
-            <FaCat size={iconSize} /> - My cat Minushka will dig the litter box
-            for a random treasure
+            <FaCat size={iconSize} /> - My cat Minushka will dig the litter for
+            a random treasure
           </li>
           <li>
             {" "}
-            <GiFullFolder size={iconSize} /> - A portfolio of my work and
-            experience
+            <GiFullFolder size={iconSize} /> - A portfolio of my work
           </li>
           <li>
             {" "}
-            <GiSunrise size={iconSize} /> - Light and dark mode for the sake of
-            your eyes
+            <GiSunrise size={iconSize} /> - Light/dark mode for the sake of your
+            eyes
           </li>
         </ul>
-        <Footer />
+        <Footer addBuffer={true} />
       </div>
     </div>
   );
