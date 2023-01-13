@@ -28,7 +28,7 @@ export default function IntroTertiary({
   }, [inView, setCurrentSection]);
 
   return (
-    <div className={styles.sheet_body} ref={reference}>
+    <div className={styles.sheet_body_end} ref={reference}>
       <div className={styles.intro_secondary_container}>
         <h2 className={styles.intro_tertiary_container_title} ref={ref}>
           Garden Legend
@@ -52,8 +52,8 @@ export default function IntroTertiary({
             <GiSunrise size={iconSize} /> - Light/dark mode for the sake of your
             eyes
           </li>
+          <Footer addBuffer={true} />
         </ul>
-        <Footer addBuffer={true} />
       </div>
     </div>
   );
