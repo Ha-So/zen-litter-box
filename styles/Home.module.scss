@@ -72,8 +72,7 @@
 
             /* Medium devices (landscape tablets, 768px and up) */
             @media only screen and (max-width: 768px) {
-                // height: fit-content;
-                //     overflow-y: scroll;
+                overflow-y: visible;
             }
         }
 
@@ -229,6 +228,7 @@ ul.space_list li {
         top: 0;
         bottom: 0;
         margin: auto 0;
+        cursor: pointer;
     }
 
     &_padding {
