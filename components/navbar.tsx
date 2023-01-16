@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "../styles/Navbar.module.scss";
 import Link from "next/link";
 import { GiFullFolder, GiSunrise, GiSunset, GiNotebook } from "react-icons/gi";
 import { MdOutlineMenuOpen, MdOutlineMenu } from "react-icons/md";
 import { FaCat } from "react-icons/fa";
-import { motion } from "framer-motion";
+import { motion, useUnmountEffect } from "framer-motion";
 import { useRouter } from "next/router";
+import apiCall from "../pages/api/entries";
 
 interface NavbarProps {
   width: number;
@@ -25,7 +26,17 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
 
   const router = useRouter();
 
+  useEffect(() => {
+    fetch("/api/entries")
+      .then((res) => res.json())
+      .then((data) => {
+        setNotes(data);
+        console.log("notes", data);
+      });
+  }, []);
+
   const handleMinushkaClick = async () => {
+    console.log("notes from minushaka", notes);
     setShowMinushkaResult(true);
     setTimeout(() => {
       setShowMinushkaResult(false);
