@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "../styles/Navbar.module.scss";
 import Link from "next/link";
 import { GiFullFolder, GiSunrise, GiSunset, GiNotebook } from "react-icons/gi";
 import { MdOutlineMenuOpen, MdOutlineMenu } from "react-icons/md";
 import { FaCat } from "react-icons/fa";
-import { motion } from "framer-motion";
+import { motion, useUnmountEffect } from "framer-motion";
 import { useRouter } from "next/router";
+import apiCall from "../pages/api/entries";
 
 interface NavbarProps {
   width: number;
@@ -21,15 +22,33 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
     "Minushka is currently napping!"
   );
   const [showMinushkaResult, setShowMinushkaResult] = useState(false);
-  const [notes, setNotes] = useState();
+  const [notes, setNotes] = useState<any[]>([]);
+  const [randomIndex, setRandomIndex] = useState(-1);
 
   const router = useRouter();
 
-  const handleMinushkaClick = async () => {
+  useEffect(() => {
+    fetch("/api/entries")
+      .then((res) => res.json())
+      .then((data) => {
+        setNotes(data.entriesData);
+        setRandomIndex(getRandomArbitrary(0, data.entriesData.length - 1));
+      });
+  }, []);
+
+  const handleMinushkaClick = () => {
+    setMinushMessage("Minushka dug up " + notes[randomIndex]?.title + "!");
+    router.push("/notes/" + notes[randomIndex]?.slug);
     setShowMinushkaResult(true);
+
+    setRandomIndex(getRandomArbitrary(0, notes.length - 1));
     setTimeout(() => {
       setShowMinushkaResult(false);
-    }, 2000);
+    }, 3000);
+  };
+
+  const getRandomArbitrary = (min: number, max: number) => {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
   };
 
   const handleThemeClick = () => {
@@ -98,7 +117,7 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
           <motion.span
             whileHover={{ scale: 1.2 }}
             onClick={async () =>
-              !showMinushkaResult ? await handleMinushkaClick() : null
+              !showMinushkaResult ? handleMinushkaClick() : null
             }
           >
             <FaCat size={iconSize} />

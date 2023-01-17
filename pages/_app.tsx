@@ -37,6 +37,9 @@ export default function App({ Component, pageProps }: AppProps) {
     <div data-theme={theme}>
       <Head>
         <title>Zen Litter Box</title>
+        <meta name="description" content="My digital garden" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar width={width} setTheme={updateTheme} theme={theme} />
       <Component
