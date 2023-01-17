@@ -22,7 +22,8 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
     "Minushka is currently napping!"
   );
   const [showMinushkaResult, setShowMinushkaResult] = useState(false);
-  const [notes, setNotes] = useState();
+  const [notes, setNotes] = useState<any[]>([]);
+  const [randomIndex, setRandomIndex] = useState(-1);
 
   const router = useRouter();
 
@@ -30,17 +31,24 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
     fetch("/api/entries")
       .then((res) => res.json())
       .then((data) => {
-        setNotes(data);
-        console.log("notes", data);
+        setNotes(data.entriesData);
+        setRandomIndex(getRandomArbitrary(0, data.entriesData.length - 1));
       });
   }, []);
 
-  const handleMinushkaClick = async () => {
-    console.log("notes from minushaka", notes);
+  const handleMinushkaClick = () => {
+    setMinushMessage("Minushka dug up " + notes[randomIndex]?.title + "!");
+    router.push("/notes/" + notes[randomIndex]?.slug);
     setShowMinushkaResult(true);
+
+    setRandomIndex(getRandomArbitrary(0, notes.length - 1));
     setTimeout(() => {
       setShowMinushkaResult(false);
-    }, 2000);
+    }, 3000);
+  };
+
+  const getRandomArbitrary = (min: number, max: number) => {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
   };
 
   const handleThemeClick = () => {
@@ -109,7 +117,7 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
           <motion.span
             whileHover={{ scale: 1.2 }}
             onClick={async () =>
-              !showMinushkaResult ? await handleMinushkaClick() : null
+              !showMinushkaResult ? handleMinushkaClick() : null
             }
           >
             <FaCat size={iconSize} />
