@@ -1,12 +1,21 @@
 import React, { useState, useEffect } from "react";
 import styles from "../styles/Navbar.module.scss";
 import Link from "next/link";
-import { GiFullFolder, GiSunrise, GiSunset, GiNotebook } from "react-icons/gi";
+import Image from "next/image";
+import {
+  GiFullFolder,
+  GiCat,
+  GiSunrise,
+  GiSunset,
+  GiNotebook,
+  GiPublicSpeaker,
+} from "react-icons/gi";
+import { TbShovel } from "react-icons/tb";
 import { MdOutlineMenuOpen, MdOutlineMenu } from "react-icons/md";
 import { FaCat } from "react-icons/fa";
-import { motion, useUnmountEffect } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRouter } from "next/router";
-import apiCall from "../pages/api/entries";
+import meowIcon from "../public/meow2.png";
 
 interface NavbarProps {
   width: number;
@@ -111,7 +120,8 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
         <div className={styles.navbar_container_menu_icon}>
           <motion.span whileHover={{ scale: 1.2 }}>
             <Link href="/notes">
-              <GiNotebook size={iconSize} />
+              {/* <Image src={meowIcon} alt={"MEOWS"} height={40} width={40} /> */}
+              <GiPublicSpeaker size={iconSize} />
             </Link>
           </motion.span>
           <motion.span
@@ -120,16 +130,13 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
               !showMinushkaResult ? handleMinushkaClick() : null
             }
           >
-            <FaCat size={iconSize} />
+            <GiCat size={iconSize} />
           </motion.span>
           <motion.span whileHover={{ scale: 1.2 }}>
-            <a href="https://ha-so.github.io/home/">
+            <Link href="/the-scoop">
               {" "}
-              <GiFullFolder
-                size={iconSize}
-                className={styles.navbar_icons_hover}
-              />
-            </a>
+              <TbShovel size={iconSize} className={styles.navbar_icons_hover} />
+            </Link>
           </motion.span>
           <motion.span
             whileHover={{ scale: 1.2 }}
@@ -154,23 +161,22 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
         <div className={styles.navbar_container_column_icons}>
           <motion.span whileHover={{ scale: 1.2 }}>
             <Link href="/notes">
-              <GiNotebook size={iconSize} />
+              {/* <Image src={meowIcon} alt={"MEOWS"} height={45} width={45} /> */}
+
+              <GiPublicSpeaker size={iconSize} />
             </Link>
           </motion.span>
           <motion.span
             whileHover={{ scale: 1.2 }}
             onClick={() => handleMinushkaClick()}
           >
-            <FaCat size={iconSize} />
+            <GiCat size={iconSize} />
           </motion.span>
           <motion.span whileHover={{ scale: 1.2 }}>
-            <a href="https://ha-so.github.io/home/">
+            <Link href="/the-scoop">
               {" "}
-              <GiFullFolder
-                size={iconSize}
-                className={styles.navbar_icons_hover}
-              />
-            </a>
+              <TbShovel size={iconSize} className={styles.navbar_icons_hover} />
+            </Link>
           </motion.span>
           <motion.span
             whileHover={{ scale: 1.2 }}
