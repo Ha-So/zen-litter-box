@@ -6,7 +6,7 @@ import { MdOutlineMenuOpen, MdOutlineMenu } from "react-icons/md";
 import { FaCat } from "react-icons/fa";
 import { motion, useUnmountEffect } from "framer-motion";
 import { useRouter } from "next/router";
-import apiCall from "../pages/api/entries";
+import * as ga from "../lib/ga";
 
 interface NavbarProps {
   width: number;
@@ -38,6 +38,7 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
 
   const handleMinushkaClick = () => {
     setMinushMessage("Minushka dug up " + notes[randomIndex]?.title + "!");
+    search();
     router.push("/notes/" + notes[randomIndex]?.slug);
     setShowMinushkaResult(true);
 
@@ -58,6 +59,15 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
 
   const handleMenuClick = () => {
     setShowMenu(!showMenu);
+  };
+
+  const search = () => {
+    ga.event({
+      action: "search",
+      params: {
+        search_term: minushMessage,
+      },
+    });
   };
 
   const variantsMinush = {
