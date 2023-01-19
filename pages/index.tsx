@@ -5,6 +5,7 @@ import IntroSecondary from "../components/home/intro-secondary";
 import IntroTertiary from "../components/home/intro-tertiary";
 import Intro from "../components/home/intro";
 import Coffee from "../components/coffee";
+import * as ga from "../lib/ga";
 
 export interface HomeProps {
   width: number;
@@ -23,6 +24,12 @@ export default function Home({ width }: HomeProps) {
     }
     return styles.navbar_indicators;
   };
+  useEffect(() => {
+    ga.event({
+      action: "home_page_load",
+      params: "none",
+    });
+  }, []);
 
   return (
     <div className={styles.sheet_background}>
