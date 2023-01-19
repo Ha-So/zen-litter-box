@@ -85,12 +85,12 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
   };
 
   const variantsMinush = {
-    open: { opacity: 1.0, y: 0, transition: { duration: 0.6 } },
-    closed: { opacity: 0, y: "-400%", transition: { duration: 0.6 } },
+    open: { opacity: 1.0, y: 0, transition: { duration: 0.5 } },
+    closed: { opacity: 0, y: "-400%", transition: { duration: 0.5 } },
   };
   const variants = {
-    open: { opacity: 1.0, x: 0, transition: { duration: 1 } },
-    closed: { opacity: 0, x: "-100%", transition: { duration: 1 } },
+    open: { opacity: 1.0, x: 0, transition: { duration: 0.5 } },
+    closed: { opacity: 0, x: "-100%", transition: { duration: 0.5 } },
   };
 
   return (
