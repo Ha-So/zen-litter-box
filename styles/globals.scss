@@ -13,11 +13,17 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background: var(--bkg-color);
   color: var(--text-color);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  /* Internet Explorer 10+ */
+  scrollbar-width: none;
+
 }
 
 body::-webkit-scrollbar {
   width: 0.5em;
   opacity: 50%;
+  display: none;
 }
 
 body::-webkit-scrollbar-track {
