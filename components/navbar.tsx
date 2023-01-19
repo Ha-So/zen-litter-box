@@ -63,7 +63,7 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
 
   const search = () => {
     ga.event({
-      action: "search",
+      action: "minushka button",
       params: {
         search_term: minushMessage,
       },
