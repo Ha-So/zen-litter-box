@@ -27,22 +27,36 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
 
   const router = useRouter();
 
+  const updateRandomIndex = () => {
+    let newRandomIndex = getRandomArbitrary(0, notes.length - 1);
+    while (newRandomIndex === randomIndex) {
+      newRandomIndex = getRandomArbitrary(0, notes.length - 1);
+    }
+    setRandomIndex(newRandomIndex);
+  };
+
   useEffect(() => {
     fetch("/api/entries")
       .then((res) => res.json())
       .then((data) => {
         setNotes(data.entriesData);
-        setRandomIndex(getRandomArbitrary(0, data.entriesData.length - 1));
+        updateRandomIndex();
       });
   }, []);
 
   const handleMinushkaClick = () => {
-    setMinushMessage("Minushka dug up " + notes[randomIndex]?.title + "!");
-    search();
-    router.push("/notes/" + notes[randomIndex]?.slug);
+    const currentPath = router.asPath.split("#")[0].split("?")[0];
+    if (currentPath === "/notes/" + notes[randomIndex]?.slug) {
+      setMinushMessage(
+        "Minushka already dug up " + notes[randomIndex]?.title + "!"
+      );
+    } else {
+      setMinushMessage("Minushka dug up " + notes[randomIndex]?.title + "!");
+      search();
+      router.push("/notes/" + notes[randomIndex]?.slug);
+    }
+    updateRandomIndex();
     setShowMinushkaResult(true);
-
-    setRandomIndex(getRandomArbitrary(0, notes.length - 1));
     setTimeout(() => {
       setShowMinushkaResult(false);
     }, 3000);
@@ -72,7 +86,7 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
 
   const variantsMinush = {
     open: { opacity: 1.0, y: 0, transition: { duration: 0.6 } },
-    closed: { opacity: 0, y: "-200%", transition: { duration: 0.6 } },
+    closed: { opacity: 0, y: "-400%", transition: { duration: 0.6 } },
   };
   const variants = {
     open: { opacity: 1.0, x: 0, transition: { duration: 1 } },
@@ -126,9 +140,7 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
           </motion.span>
           <motion.span
             whileHover={{ scale: 1.2 }}
-            onClick={async () =>
-              !showMinushkaResult ? handleMinushkaClick() : null
-            }
+            onClick={() => (!showMinushkaResult ? handleMinushkaClick() : null)}
           >
             <FaCat size={iconSize} />
           </motion.span>
@@ -169,7 +181,7 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
           </motion.span>
           <motion.span
             whileHover={{ scale: 1.2 }}
-            onClick={() => handleMinushkaClick()}
+            onClick={() => (!showMinushkaResult ? handleMinushkaClick() : null)}
           >
             <FaCat size={iconSize} />
           </motion.span>
