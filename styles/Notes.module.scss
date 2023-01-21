@@ -92,6 +92,10 @@
 
             color: var(--vibrant-bkg);
             text-decoration: underline;
+
+            &:hover {
+                opacity: 70%;
+            }
         }
     }
 

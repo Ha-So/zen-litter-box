@@ -15,6 +15,16 @@ const TheScoop = () => {
           className={styles.progress_bar}
           style={{ scaleX: scrollYProgress }}
         />
+        <div className={styles.sheet_body}>
+          <motion.h2
+            initial={{ opacity: 0, scale: 1.0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.5 }}
+            className={styles.notes_header}
+          >
+            The Scoop
+          </motion.h2>
+        </div>
       </div>
     </div>
   );

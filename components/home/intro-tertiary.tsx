@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import styles from "../../styles/Home.module.scss";
 import { GiFullFolder, GiSunrise, GiNotebook } from "react-icons/gi";
 import { FaCat } from "react-icons/fa";
+import { TbShovel } from "react-icons/tb";
 import Footer from "../footer";
 import { useInView } from "react-intersection-observer";
 
@@ -45,7 +46,8 @@ export default function IntroTertiary({
           </li>
           <li>
             {" "}
-            <GiFullFolder size={iconSize} /> - A portfolio of my work
+            <TbShovel size={iconSize} /> - Get the scoop on my clients and
+            projects
           </li>
           <li>
             {" "}

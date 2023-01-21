@@ -3,6 +3,7 @@ import styles from "../styles/Navbar.module.scss";
 import Link from "next/link";
 import { GiFullFolder, GiSunrise, GiSunset, GiNotebook } from "react-icons/gi";
 import { MdOutlineMenuOpen, MdOutlineMenu } from "react-icons/md";
+import { TbShovel } from "react-icons/tb";
 import { FaCat } from "react-icons/fa";
 import { motion, useUnmountEffect } from "framer-motion";
 import { useRouter } from "next/router";
@@ -52,8 +53,8 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
       );
     } else {
       setMinushMessage("Minushka dug up " + notes[randomIndex]?.title + "!");
-      search();
       router.push("/notes/" + notes[randomIndex]?.slug);
+      search();
     }
     updateRandomIndex();
     setShowMinushkaResult(true);
@@ -146,10 +147,7 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
           </motion.span>
           <motion.span whileHover={{ scale: 1.2 }}>
             <Link href="/the-scoop">
-              <GiFullFolder
-                size={iconSize}
-                className={styles.navbar_icons_hover}
-              />
+              <TbShovel size={iconSize} className={styles.navbar_icons_hover} />
             </Link>
           </motion.span>
           <motion.span
@@ -186,10 +184,7 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
           </motion.span>
           <motion.span whileHover={{ scale: 1.2 }}>
             <Link href="/the-scoop">
-              <GiFullFolder
-                size={iconSize}
-                className={styles.navbar_icons_hover}
-              />
+              <TbShovel size={iconSize} className={styles.navbar_icons_hover} />
             </Link>
           </motion.span>
           <motion.span
