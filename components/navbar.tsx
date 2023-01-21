@@ -145,13 +145,12 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
             <FaCat size={iconSize} />
           </motion.span>
           <motion.span whileHover={{ scale: 1.2 }}>
-            <a href="https://ha-so.github.io/home/">
-              {" "}
+            <Link href="/the-scoop">
               <GiFullFolder
                 size={iconSize}
                 className={styles.navbar_icons_hover}
               />
-            </a>
+            </Link>
           </motion.span>
           <motion.span
             whileHover={{ scale: 1.2 }}
@@ -186,13 +185,12 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
             <FaCat size={iconSize} />
           </motion.span>
           <motion.span whileHover={{ scale: 1.2 }}>
-            <a href="https://ha-so.github.io/home/">
-              {" "}
+            <Link href="/the-scoop">
               <GiFullFolder
                 size={iconSize}
                 className={styles.navbar_icons_hover}
               />
-            </a>
+            </Link>
           </motion.span>
           <motion.span
             whileHover={{ scale: 1.2 }}

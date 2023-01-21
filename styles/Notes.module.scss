@@ -83,6 +83,18 @@
         margin-top: 40px;
     }
 
+    &_404 {
+        margin: auto;
+        text-align: center;
+
+        &_sub {
+            @extend .notes_404;
+
+            color: var(--vibrant-bkg);
+            text-decoration: underline;
+        }
+    }
+
     &_title {
         text-decoration: underline;
         color: var(--vibrant-bkg);
