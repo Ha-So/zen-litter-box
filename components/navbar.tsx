@@ -91,14 +91,18 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
   };
   const variants = {
     open: { opacity: 1.0, x: 0, transition: { duration: 0.5 } },
-    closed: { opacity: 0, x: "-100%", transition: { duration: 0.5 } },
+    closed: { opacity: 1.0, x: "-700%", transition: { duration: 0.5 } },
   };
 
   return (
     <div className={styles.navbar_container_row}>
       <Link href="/">
         <motion.h2
-          whileHover={{ scale: 1.2 }}
+          initial={{ scale: 1 }}
+          whileHover={{
+            scale: 1.15,
+          }}
+          transition={{ scale: { type: "spring", stiffness: 500 } }}
           className={styles.navbar_container_column_title}
         >
           Zen Litter Box
@@ -115,7 +119,11 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
       {isMobile && (
         <div className={styles.navbar_container_column_hamburger}>
           <motion.span
-            whileHover={{ scale: 1.2 }}
+            initial={{ scale: 1 }}
+            whileHover={{
+              scale: 1.15,
+            }}
+            transition={{ scale: { type: "spring", stiffness: 500 } }}
             onClick={() => handleMenuClick()}
           >
             {showMenu ? (
