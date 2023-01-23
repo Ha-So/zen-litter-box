@@ -30,22 +30,37 @@ const TheScoop = () => {
           style={{ scaleX: scrollYProgress }}
         />
         <div className={noteStyles.sheet_body}>
-          <motion.h2
+          <motion.h1
             initial={{ opacity: 0, scale: 1.0 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.5 }}
-            className={noteStyles.notes_header}
+            className={noteStyles.notes_header_scoop}
           >
             The Scoop
-          </motion.h2>
+          </motion.h1>
           <div className={styles.scroller_row}>
-            <p className={styles.scroller_pretext}>
-              Some of the clients I've engaged with
-            </p>
+            <h2 className={styles.scroller_pretext}>
+              Clients I've engaged with
+            </h2>
             <motion.div
               initial={{ x: 700, scale: 1.0 }}
               animate={{ x: 0 }}
               transition={{ type: "spring", stiffness: 100 }}
+              className={styles.scroller_column}
+            >
+              {" "}
+              <HorizontalScroller children={clientChildren} />
+            </motion.div>
+          </div>
+          <div className={styles.scroller_row}>
+            <h2 className={styles.scroller_pretext}>
+              Clients I've engaged with
+            </h2>
+            <motion.div
+              initial={{ x: 700, scale: 1.0 }}
+              animate={{ x: 0 }}
+              transition={{ type: "spring", stiffness: 100 }}
+              className={styles.scroller_column}
             >
               {" "}
               <HorizontalScroller children={clientChildren} />

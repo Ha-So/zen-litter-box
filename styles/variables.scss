@@ -37,7 +37,7 @@ $mobile-breakpoint: 44.9375rem; // 719px
     --bkg-color: var(--bkg-color-light);
     --bkg-color-container: var(--bkg-color-container-light);
     --box-shadow: var(--box-shadow-light);
-    --line-gradient: var(--line-gradient-light);
+    --line-gradient: var(--line-gradient-dark);
     --header-font: var(--fredoka-one);
     --vibrant-bkg: var(--vibrant-bkg-aqua);
   }
@@ -48,7 +48,7 @@ $mobile-breakpoint: 44.9375rem; // 719px
   --bkg-color: var(--bkg-color-light);
   --bkg-color-container: var(--bkg-color-container-light);
   --box-shadow: var(--box-shadow-light);
-  --line-gradient: var(--line-gradient-light);
+  --line-gradient: var(--line-gradient-dark);
   --header-font: var(--fredoka-one);
   --vibrant-bkg: var(--vibrant-bkg-orange);
 }
