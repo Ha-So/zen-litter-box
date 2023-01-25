@@ -1,66 +1,85 @@
-$finalHeight: 250px;
-$finalWidth: 3 * $finalHeight;
-$scrollBarHeight: 1px;
-
-
 .card {
-
-    &_container {
-        display: inline-block;
-        flex: 0 0 auto;
-        background-color: var(--bkg-color-container);
-        border-radius: 25px;
-        height: fit-content;
-        width: 300px;
-        overflow: hidden;
-        max-width: 300px;
-          scroll-snap-align: center;
-          font-family: var(--paragraph-font);
+  &_container {
+    display: inline-block;
+    flex: 0 0 auto;
+    background-color: var(--bkg-color-container);
+    border-radius: 25px;
+    height: fit-content;
+    width: 300px;
+    overflow: hidden;
+    max-width: 300px;
+    scroll-snap-align: center;
+    font-family: var(--paragraph-font);
+    /* Medium devices (landscape tablets, 768px and up) */
+    @media only screen and (max-width: 768px) {
+      max-width: 200px;
     }
+  }
 
-    &_description {
-        margin: 20px;
-    }
+  &_description {
+    margin: 20px;
+  }
 
-    &_image {
-        object-fit: cover;
-    }
+  &_image {
+    object-fit: cover;
+  }
 }
 
-.scroller {  
+.scroller {
+  &_pretext {
+    display: flex;
+    width: 30vw;
+    margin-top: 100px;
+    margin-bottom: -150px;
+    color: var(--vibrant-bkg);
+  }
 
+  &_edge {
+    display: flex;
 
-    &_pretext {
-        display: flex;
-        width: 30vw;
-        margin-top: 100px;
-        margin-bottom: -150px;
-        color: var(--vibrant-bkg);
-        padding-left: 300px;
+    /* Medium devices (landscape tablets, 768px and up) */
+    // @media only screen and (min-width: 768px) {
+    //   margin-left: 50%;
+    // }
+  }
+
+  &_left_arrow {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  &_right_arrow {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  &_container {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 100px;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    padding-left: 100px;
+    padding-right: 100px;
+    display: flex;
+    width: 350px;
+
+    &::-webkit-scrollbar {
+      display: none;
     }
+    -webkit-overflow-scrolling: touch;
+  }
+}
 
-    &_container {
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        gap: 100px;
-        overscroll-behavior-x: contain;
-        scroll-snap-type: x mandatory;
-        padding-left: 100px;
-        padding-right: 100px;
-        margin: -40px;
-        display: flex;
+.contact {
+  &_container {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+  }
 
-     
-
-   
-        /* Medium devices (landscape tablets, 768px and up) */
-        @media only screen and (min-width: 768px) {
-               margin-left: 50%;
-        }
-        &::-webkit-scrollbar{
-            display: none;
-        }
-          -webkit-overflow-scrolling: touch;
-
-    }
+  &_item {
+    display: flex;
+    padding: 0 30px;
+  }
 }

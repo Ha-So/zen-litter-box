@@ -83,11 +83,10 @@
     &_header {
         margin-top: 40px;
 
-             &_scoop {
-        margin-top: 40px;
-        margin-left: auto;
-        margin-right: auto;
-    }
+        &_scoop {
+            margin: 40px auto 40px auto;
+            text-align: center;
+        }
 
     }
 

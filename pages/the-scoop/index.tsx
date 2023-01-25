@@ -5,19 +5,20 @@ import HorizontalScroller from "../../components/the-scoop/horizontal-scroller";
 import Card from "../../components/the-scoop/card";
 import nw from "../../public/card-images/nw.jpg";
 import styles from "../../styles/Scroller.module.scss";
+import Contact from "../../components/the-scoop/contact";
 
 const TheScoop = () => {
   const { scrollYProgress } = useScroll();
   const cardInfo =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore";
   const clientChildren = [
-    <Card cardText={cardInfo} cardImage={nw} cardLink={""} />,
-    <Card cardText={cardInfo} cardImage={nw} cardLink={""} />,
-    <Card cardText={cardInfo} cardImage={nw} cardLink={""} />,
-    <Card cardText={cardInfo} cardImage={nw} cardLink={""} />,
+    <Card cardText={"1"} cardImage={nw} cardLink={""} />,
+    <Card cardText={"2"} cardImage={nw} cardLink={""} />,
+    <Card cardText={"3"} cardImage={nw} cardLink={""} />,
+    <Card cardText={"4"} cardImage={nw} cardLink={""} />,
 
-    <Card cardText={cardInfo} cardImage={nw} cardLink={""} />,
-    <Card cardText={cardInfo} cardImage={nw} cardLink={""} />,
+    <Card cardText={"5"} cardImage={nw} cardLink={""} />,
+    <Card cardText={"6"} cardImage={nw} cardLink={""} />,
   ];
   return (
     <div className={noteStyles.sheet_background}>
@@ -38,6 +39,18 @@ const TheScoop = () => {
           >
             The Scoop
           </motion.h1>
+          <Contact />
+          {/* <h2 className={styles.scroller_pretext}>
+              Clients I've engaged with
+            </h2> */}
+          <motion.div
+            initial={{ x: 700, scale: 1.0 }}
+            animate={{ x: 0 }}
+            transition={{ type: "spring", stiffness: 100 }}
+          >
+            {" "}
+            <HorizontalScroller children={clientChildren} />
+          </motion.div>
           <div className={styles.scroller_row}>
             <h2 className={styles.scroller_pretext}>
               Clients I've engaged with
@@ -52,21 +65,7 @@ const TheScoop = () => {
               <HorizontalScroller children={clientChildren} />
             </motion.div>
           </div>
-          <div className={styles.scroller_row}>
-            <h2 className={styles.scroller_pretext}>
-              Clients I've engaged with
-            </h2>
-            <motion.div
-              initial={{ x: 700, scale: 1.0 }}
-              animate={{ x: 0 }}
-              transition={{ type: "spring", stiffness: 100 }}
-              className={styles.scroller_column}
-            >
-              {" "}
-              <HorizontalScroller children={clientChildren} />
-            </motion.div>
-          </div>
-
+          .
           {/* Once in view slide in from left horizontal scroller of projects */}
           {/* Contact Info - LinkedIn, Github, Email */}
         </div>
