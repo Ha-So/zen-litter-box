@@ -3,6 +3,7 @@ import styles from "../styles/Navbar.module.scss";
 import Link from "next/link";
 import { GiFullFolder, GiSunrise, GiSunset, GiNotebook } from "react-icons/gi";
 import { MdOutlineMenuOpen, MdOutlineMenu } from "react-icons/md";
+import { TbShovel } from "react-icons/tb";
 import { FaCat } from "react-icons/fa";
 import { motion, useUnmountEffect } from "framer-motion";
 import { useRouter } from "next/router";
@@ -26,7 +27,7 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
   const [randomIndex, setRandomIndex] = useState(-1);
 
   const router = useRouter();
-
+  const currentRoute = router.pathname;
   const updateRandomIndex = () => {
     let newRandomIndex = getRandomArbitrary(0, notes.length - 1);
     while (newRandomIndex === randomIndex) {
@@ -52,8 +53,8 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
       );
     } else {
       setMinushMessage("Minushka dug up " + notes[randomIndex]?.title + "!");
-      search();
       router.push("/notes/" + notes[randomIndex]?.slug);
+      search();
     }
     updateRandomIndex();
     setShowMinushkaResult(true);
@@ -90,14 +91,18 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
   };
   const variants = {
     open: { opacity: 1.0, x: 0, transition: { duration: 0.5 } },
-    closed: { opacity: 0, x: "-100%", transition: { duration: 0.5 } },
+    closed: { opacity: 1.0, x: "-500%", transition: { duration: 0.5 } },
   };
 
   return (
     <div className={styles.navbar_container_row}>
       <Link href="/">
         <motion.h2
-          whileHover={{ scale: 1.2 }}
+          initial={{ scale: 1 }}
+          whileHover={{
+            scale: 1.15,
+          }}
+          transition={{ scale: { type: "spring", stiffness: 500 } }}
           className={styles.navbar_container_column_title}
         >
           Zen Litter Box
@@ -114,7 +119,11 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
       {isMobile && (
         <div className={styles.navbar_container_column_hamburger}>
           <motion.span
-            whileHover={{ scale: 1.2 }}
+            initial={{ scale: 1 }}
+            whileHover={{
+              scale: 1.15,
+            }}
+            transition={{ scale: { type: "spring", stiffness: 500 } }}
             onClick={() => handleMenuClick()}
           >
             {showMenu ? (
@@ -145,13 +154,9 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
             <FaCat size={iconSize} />
           </motion.span>
           <motion.span whileHover={{ scale: 1.2 }}>
-            <a href="https://ha-so.github.io/home/">
-              {" "}
-              <GiFullFolder
-                size={iconSize}
-                className={styles.navbar_icons_hover}
-              />
-            </a>
+            <Link href="/the-scoop">
+              <TbShovel size={iconSize} className={styles.navbar_icons_hover} />
+            </Link>
           </motion.span>
           <motion.span
             whileHover={{ scale: 1.2 }}
@@ -186,13 +191,9 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
             <FaCat size={iconSize} />
           </motion.span>
           <motion.span whileHover={{ scale: 1.2 }}>
-            <a href="https://ha-so.github.io/home/">
-              {" "}
-              <GiFullFolder
-                size={iconSize}
-                className={styles.navbar_icons_hover}
-              />
-            </a>
+            <Link href="/the-scoop">
+              <TbShovel size={iconSize} className={styles.navbar_icons_hover} />
+            </Link>
           </motion.span>
           <motion.span
             whileHover={{ scale: 1.2 }}

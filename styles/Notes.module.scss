@@ -38,6 +38,7 @@
         flex-direction: column;
         position: relative;
         padding: 70px 40px 40px 40px;
+        overflow: hidden;
 
         /* Medium devices (landscape tablets, 768px and up) */
         @media only screen and (min-width: 768px) {
@@ -81,6 +82,30 @@
 
     &_header {
         margin-top: 40px;
+
+        &_scoop {
+            margin: 40px auto 40px auto;
+            text-align: center;
+        }
+
+    }
+
+
+
+    &_404 {
+        margin: auto;
+        text-align: center;
+
+        &_sub {
+            @extend .notes_404;
+
+            color: var(--vibrant-bkg);
+            text-decoration: underline;
+
+            &:hover {
+                opacity: 70%;
+            }
+        }
     }
 
     &_title {

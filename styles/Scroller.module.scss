@@ -1,0 +1,122 @@
+.card {
+  &_container {
+    display: inline-block;
+    flex: 0 0 auto;
+    background-color: var(--bkg-color-container);
+    border-radius: 25px;
+    height: fit-content;
+    width: 300px;
+    overflow: hidden;
+    max-width: 300px;
+    scroll-snap-align: center;
+    font-family: var(--paragraph-font);
+    /* Medium devices (landscape tablets, 768px and up) */
+    @media only screen and (max-width: 768px) {
+      max-width: 200px;
+    }
+  }
+
+  &_description {
+    margin: 20px;
+  }
+
+  &_image {
+    object-fit: cover;
+  }
+}
+
+.scroller {
+  &_pretext {
+    display: flex;
+    width: 30vw;
+    margin-top: 100px;
+    margin-bottom: -150px;
+    color: var(--vibrant-bkg);
+  }
+
+  &_edge {
+    display: flex;
+
+    /* Medium devices (landscape tablets, 768px and up) */
+    // @media only screen and (min-width: 768px) {
+    //   margin-left: 50%;
+    // }
+  }
+
+  &_left_arrow {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  &_right_arrow {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  &_container {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 100px;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    padding-left: 100px;
+    padding-right: 100px;
+    display: flex;
+    width: 350px;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+.contact {
+  &_container {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+  }
+
+  &_item {
+    display: flex;
+    cursor: pointer;
+
+    &--end-right {
+      display: flex;
+      cursor: pointer;
+      margin-left: 50px;
+    }
+
+    &--end-left {
+      display: flex;
+      cursor: pointer;
+      padding-right: 50px;
+    }
+  }
+}
+
+.cube-container div {
+  background: white;
+  border-radius: 30px;
+  width: 150px;
+  height: 150px;
+  position: relative;
+  margin: auto;
+}
+
+.cube-container .drag-area {
+  opacity: 0.2;
+  background: white;
+  position: absolute;
+  width: 300px;
+  height: 500px;
+  border-radius: 30px;
+  top: calc(50% - 150px);
+  left: calc(50% - 150px);
+  z-index: -1;
+}
+
+.banner {
+  text-align: center;
+}
