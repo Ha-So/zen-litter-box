@@ -27,7 +27,8 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
   const [randomIndex, setRandomIndex] = useState(-1);
 
   const router = useRouter();
-
+  const currentRoute = router.pathname;
+  console.log(currentRoute);
   const updateRandomIndex = () => {
     let newRandomIndex = getRandomArbitrary(0, notes.length - 1);
     while (newRandomIndex === randomIndex) {
@@ -91,7 +92,7 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
   };
   const variants = {
     open: { opacity: 1.0, x: 0, transition: { duration: 0.5 } },
-    closed: { opacity: 1.0, x: "-700%", transition: { duration: 0.5 } },
+    closed: { opacity: 1.0, x: "-500%", transition: { duration: 0.5 } },
   };
 
   return (

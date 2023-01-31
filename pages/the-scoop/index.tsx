@@ -1,25 +1,19 @@
+import { useState } from "react";
 import noteStyles from "../../styles/Notes.module.scss";
 import { motion, useScroll } from "framer-motion";
 import Head from "next/head";
-import HorizontalScroller from "../../components/the-scoop/horizontal-scroller";
-import Card from "../../components/the-scoop/card";
-import nw from "../../public/card-images/nw.jpg";
 import styles from "../../styles/Scroller.module.scss";
 import Contact from "../../components/the-scoop/contact";
+import { Cube } from "../../components/the-scoop/cube";
 
-const TheScoop = () => {
+export interface ScoopProps {
+  width: number;
+}
+
+const TheScoop = ({ width }: ScoopProps) => {
   const { scrollYProgress } = useScroll();
-  const cardInfo =
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore";
-  const clientChildren = [
-    <Card cardText={"1"} cardImage={nw} cardLink={""} />,
-    <Card cardText={"2"} cardImage={nw} cardLink={""} />,
-    <Card cardText={"3"} cardImage={nw} cardLink={""} />,
-    <Card cardText={"4"} cardImage={nw} cardLink={""} />,
+  const isMobile = width < 768;
 
-    <Card cardText={"5"} cardImage={nw} cardLink={""} />,
-    <Card cardText={"6"} cardImage={nw} cardLink={""} />,
-  ];
   return (
     <div className={noteStyles.sheet_background}>
       <Head>
@@ -39,35 +33,24 @@ const TheScoop = () => {
           >
             The Scoop
           </motion.h1>
-          <Contact />
-          {/* <h2 className={styles.scroller_pretext}>
-              Clients I've engaged with
-            </h2> */}
+          <Contact isMobile={isMobile} />
           <motion.div
-            initial={{ x: 700, scale: 1.0 }}
-            animate={{ x: 0 }}
-            transition={{ type: "spring", stiffness: 100 }}
-          >
-            {" "}
-            <HorizontalScroller children={clientChildren} />
-          </motion.div>
-          <div className={styles.scroller_row}>
-            <h2 className={styles.scroller_pretext}>
-              Clients I've engaged with
-            </h2>
-            <motion.div
-              initial={{ x: 700, scale: 1.0 }}
-              animate={{ x: 0 }}
-              transition={{ type: "spring", stiffness: 100 }}
-              className={styles.scroller_column}
-            >
-              {" "}
-              <HorizontalScroller children={clientChildren} />
-            </motion.div>
+            initial={{ opacity: 0, scale: 1.0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.5 }}
+          ></motion.div>
+          <p className={styles.banner}>
+            Apologies, this part of the litter box is still under construction.
+            Please interact with this cube while you wait.
+          </p>
+
+          <div className={styles["cube-container"]}>
+            <Cube />
           </div>
-          .
+
           {/* Once in view slide in from left horizontal scroller of projects */}
           {/* Contact Info - LinkedIn, Github, Email */}
+          <p></p>
         </div>
       </div>
     </div>

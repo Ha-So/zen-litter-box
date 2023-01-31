@@ -80,6 +80,43 @@
 
   &_item {
     display: flex;
-    padding: 0 30px;
+    cursor: pointer;
+
+    &--end-right {
+      display: flex;
+      cursor: pointer;
+      margin-left: 50px;
+    }
+
+    &--end-left {
+      display: flex;
+      cursor: pointer;
+      padding-right: 50px;
+    }
   }
+}
+
+.cube-container div {
+  background: white;
+  border-radius: 30px;
+  width: 150px;
+  height: 150px;
+  position: relative;
+  margin: auto;
+}
+
+.cube-container .drag-area {
+  opacity: 0.2;
+  background: white;
+  position: absolute;
+  width: 300px;
+  height: 500px;
+  border-radius: 30px;
+  top: calc(50% - 150px);
+  left: calc(50% - 150px);
+  z-index: -1;
+}
+
+.banner {
+  text-align: center;
 }
