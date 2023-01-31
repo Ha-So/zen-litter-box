@@ -28,7 +28,6 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
 
   const router = useRouter();
   const currentRoute = router.pathname;
-  console.log(currentRoute);
   const updateRandomIndex = () => {
     let newRandomIndex = getRandomArbitrary(0, notes.length - 1);
     while (newRandomIndex === randomIndex) {
