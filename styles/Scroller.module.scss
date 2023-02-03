@@ -103,17 +103,18 @@
   height: 150px;
   position: relative;
   margin: auto;
+  cursor: pointer;
+  box-shadow: 0px 0px 14px 4px rgb(255, 133, 58);
 }
 
 .cube-container .drag-area {
   opacity: 0.2;
   background: white;
   position: absolute;
-  width: 300px;
+  width: 90%;
   height: 500px;
   border-radius: 30px;
   top: calc(50% - 150px);
-  left: calc(50% - 150px);
   z-index: -1;
 }
 
