@@ -154,7 +154,12 @@ export const Card = ({
               className={style.card_description}
             >
               {cardText}
-              <a href={linkRef} className={style.card_link} target="_blank">
+              <a
+                href={linkRef}
+                rel="noreferrer"
+                className={style.card_link}
+                target="_blank"
+              >
                 Check it out
               </a>
               .
