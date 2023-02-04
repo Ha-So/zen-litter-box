@@ -20,16 +20,6 @@ export interface ScoopProps {
 const TheScoop = ({ width }: ScoopProps) => {
   const { scrollYProgress } = useScroll();
   const isMobile = width < 768;
-  const food: [string, number, number][] = [
-    ["🍅", 340, 10],
-    ["🍊", 20, 40],
-    ["🍋", 60, 90],
-    ["🍐", 80, 120],
-    ["🍏", 100, 140],
-    ["🫐", 205, 245],
-    ["🍆", 260, 290],
-    ["🍇", 290, 320],
-  ];
   const images: [string, number, number, string, string][] = [
     [Axios, 340, 10, AxiosText, "https://www.axios.com"],
     [Nw, 20, 40, NwText, "https://feinstein.northwell.edu/"],
