@@ -54,7 +54,6 @@
   }
 
   &_image {
-    object-fit: cover;
     overflow: hidden;
     position: absolute;
     left: 0;
@@ -64,5 +63,18 @@
     margin: auto;
     height: 100px;
     width: fit-content;
+  }
+
+  &_title {
+    color: rgb(0, 136, 255);
+    margin: auto;
+  }
+
+  &_link {
+    color: var(--vibrant-bkg);
+    text-decoration: underline;
+    &:hover {
+      opacity: 70%;
+    }
   }
 }

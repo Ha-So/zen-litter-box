@@ -10,6 +10,7 @@ interface Props {
   cardImage: string;
   cardText: string;
   isMobile: boolean;
+  linkRef?: string;
 }
 
 const cardVariants: Variants = {
@@ -89,9 +90,16 @@ const paragraphVariantsMobile: Variants = {
 
 const hue = (h: number) => `hsl(${h}, 100%, 50%)`;
 
-export const Card = ({ hueA, hueB, cardImage, cardText, isMobile }: Props) => {
+export const Card = ({
+  hueA,
+  hueB,
+  cardImage,
+  cardText,
+  isMobile,
+  linkRef,
+}: Props) => {
   const background = `linear-gradient(306deg, ${hue(hueA)}, ${hue(hueB)})`;
-  const imageSize = 300;
+  const imageSize = 100;
   const [openInfo, setOpenInfo] = useState(false);
   const [disableClick, setDisableClick] = useState(false);
 
@@ -126,7 +134,7 @@ export const Card = ({ hueA, hueB, cardImage, cardText, isMobile }: Props) => {
           variants={!isMobile ? cardVariants : cardVariantsMobile}
           onClick={() => (disableClick ? null : onClickHandle())}
         >
-          {!openInfo && (
+          {!openInfo && cardImage && (
             <Image
               alt=""
               src={cardImage}
@@ -134,6 +142,9 @@ export const Card = ({ hueA, hueB, cardImage, cardText, isMobile }: Props) => {
               width={imageSize}
               className={style.card_image}
             />
+          )}
+          {!openInfo && !cardImage && (
+            <h2 className={style.card_title}>Amaya & Ko</h2>
           )}
           {openInfo && (
             <motion.p
@@ -143,6 +154,10 @@ export const Card = ({ hueA, hueB, cardImage, cardText, isMobile }: Props) => {
               className={style.card_description}
             >
               {cardText}
+              <a href={linkRef} className={style.card_link} target="_blank">
+                Check it out
+              </a>
+              .
             </motion.p>
           )}
         </motion.div>

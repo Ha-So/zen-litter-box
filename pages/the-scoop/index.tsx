@@ -1,10 +1,17 @@
 import noteStyles from "../../styles/Notes.module.scss";
 import { motion, useScroll } from "framer-motion";
 import Head from "next/head";
+import Buffer from "../../components/buffer";
 import Contact from "../../components/the-scoop/contact";
 import { Card } from "../../components/the-scoop/cards";
-import { Axios, Nw } from "../../public/card-images";
-import { AxiosText, NwText } from "../../values";
+import { Axios, Nw, Postlight, END, amaya } from "../../public/card-images";
+import {
+  AxiosText,
+  NwText,
+  PostlightText,
+  ENDText,
+  AmayaText,
+} from "../../values";
 
 export interface ScoopProps {
   width: number;
@@ -23,9 +30,12 @@ const TheScoop = ({ width }: ScoopProps) => {
     ["🍆", 260, 290],
     ["🍇", 290, 320],
   ];
-  const images: [string, number, number, string][] = [
-    [Axios, 340, 10, AxiosText],
-    [Nw, 20, 40, NwText],
+  const images: [string, number, number, string, string][] = [
+    [Axios, 340, 10, AxiosText, "https://www.axios.com"],
+    [Nw, 20, 40, NwText, "https://feinstein.northwell.edu/"],
+    [Postlight, 60, 90, PostlightText, "https://postlight.com/labs"],
+    [END, 80, 120, ENDText, "https://www.elnuevodia.com/"],
+    [null, 100, 140, AmayaText, "https://github.com/Ha-So/Amaya-Ko"],
   ];
   return (
     <div className={noteStyles.sheet_background}>
@@ -53,7 +63,7 @@ const TheScoop = ({ width }: ScoopProps) => {
             transition={{ duration: 1.5 }}
           ></motion.div>
           <>
-            {images.map(([cardImage, hueA, hueB, cardText], index) => (
+            {images.map(([cardImage, hueA, hueB, cardText, linkRef], index) => (
               <Card
                 hueA={hueA}
                 hueB={hueB}
@@ -61,21 +71,11 @@ const TheScoop = ({ width }: ScoopProps) => {
                 key={index}
                 cardText={cardText}
                 isMobile={width < 1000}
+                linkRef={linkRef}
               />
             ))}
           </>
-          {/* <p className={styles.banner}>
-            Apologies, this part of the litter box is still under construction.
-            Please interact with this cube while you wait.
-          </p>
-
-          <div className={styles["cube-container"]}>
-            <Cube />
-          </div> */}
-
-          {/* Once in view slide in from left horizontal scroller of projects */}
-          {/* Contact Info - LinkedIn, Github, Email */}
-          <p></p>
+          <div style={{ height: 200 }} />
         </div>
       </div>
     </div>
