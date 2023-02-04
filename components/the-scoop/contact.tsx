@@ -15,8 +15,8 @@ const Contact = ({ isMobile }: ContactProps) => {
       <span className={styles.contact_item}>
         <motion.a
           href={"https://github.com/Ha-So"}
-          whileTap={isMobile ? { scale: 1.4 } : { scale: 1.0 }}
-          whileHover={!isMobile ? { scale: 1.4 } : { scale: 1.0 }}
+          whileTap={isMobile ? { scale: 1.2 } : { scale: 1.0 }}
+          whileHover={!isMobile ? { scale: 1.2 } : { scale: 1.0 }}
           className={styles["contact_item--end-left"]}
           animate={{ x: 0 }}
           initial={{ x: -500 }}
@@ -26,8 +26,8 @@ const Contact = ({ isMobile }: ContactProps) => {
         </motion.a>
         <motion.a
           href={"mailto: haris.sohl@gmail.com"}
-          whileTap={isMobile ? { scale: 1.4 } : { scale: 1.0 }}
-          whileHover={!isMobile ? { scale: 1.4 } : { scale: 1.0 }}
+          whileTap={isMobile ? { scale: 1.2 } : { scale: 1.0 }}
+          whileHover={!isMobile ? { scale: 1.2 } : { scale: 1.0 }}
           className={styles.contact_item}
           animate={{ y: 0 }}
           initial={{ y: 500 }}
@@ -37,7 +37,7 @@ const Contact = ({ isMobile }: ContactProps) => {
         </motion.a>
         <motion.a
           href={"https://www.linkedin.com/in/haris-sohail-726b36260/"}
-          whileTap={isMobile ? { scale: 1.4 } : { scale: 1.0 }}
+          whileTap={isMobile ? { scale: 1.2 } : { scale: 1.0 }}
           whileHover={!isMobile ? { scale: 1.2 } : { scale: 1.0 }}
           className={styles["contact_item--end-right"]}
           animate={{ x: 0 }}
