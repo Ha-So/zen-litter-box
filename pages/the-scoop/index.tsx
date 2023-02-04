@@ -24,8 +24,8 @@ const TheScoop = ({ width }: ScoopProps) => {
     [Axios, 340, 10, AxiosText, "https://www.axios.com", false],
     [Nw, 20, 40, NwText, "https://feinstein.northwell.edu/", true],
     [Postlight, 60, 90, PostlightText, "https://postlight.com/labs", false],
-    [END, 80, 120, ENDText, "https://www.elnuevodia.com/", true],
-    [null, 100, 140, AmayaText, "https://github.com/Ha-So/Amaya-Ko", false],
+    [END, 100, 140, ENDText, "https://www.elnuevodia.com/", true],
+    [null, 205, 245, AmayaText, "https://github.com/Ha-So/Amaya-Ko", false],
   ];
   return (
     <div className={noteStyles.sheet_background}>

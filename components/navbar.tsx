@@ -25,6 +25,7 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
   const [showMinushkaResult, setShowMinushkaResult] = useState(false);
   const [notes, setNotes] = useState<any[]>([]);
   const [randomIndex, setRandomIndex] = useState(-1);
+  const [iconHighlight, setIconHighlight] = useState("");
 
   const router = useRouter();
   const currentRoute = router.pathname;
@@ -44,6 +45,16 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
         updateRandomIndex();
       });
   }, []);
+
+  useEffect(() => {
+    if (currentRoute.includes("notes")) {
+      setIconHighlight("notes");
+    } else if (currentRoute.includes("the-scoop")) {
+      setIconHighlight("the-scoop");
+    } else {
+      setIconHighlight("");
+    }
+  }, [currentRoute]);
 
   const handleMinushkaClick = () => {
     const currentPath = router.asPath.split("#")[0].split("?")[0];
@@ -134,7 +145,7 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
           </motion.span>
         </div>
       )}
-
+      {/** Mobile navbar - only shows on menu click*/}
       <motion.div
         className={styles.navbar_container_menu}
         animate={showMenu ? "open" : "closed"}
@@ -143,8 +154,20 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
       >
         <div className={styles.navbar_container_menu_icon}>
           <motion.span whileHover={{ scale: 1.2 }}>
+            <Link href="/the-scoop">
+              <TbShovel
+                size={iconSize}
+                className={styles.navbar_icons_hover}
+                color={iconHighlight == "the-scoop" ? "#fa6305" : "FFFFFF"}
+              />
+            </Link>
+          </motion.span>
+          <motion.span whileHover={{ scale: 1.2 }}>
             <Link href="/notes">
-              <GiNotebook size={iconSize} />
+              <GiNotebook
+                size={iconSize}
+                color={iconHighlight == "notes" ? "#fa6305" : "FFFFFF"}
+              />
             </Link>
           </motion.span>
           <motion.span
@@ -153,11 +176,7 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
           >
             <FaCat size={iconSize} />
           </motion.span>
-          <motion.span whileHover={{ scale: 1.2 }}>
-            <Link href="/the-scoop">
-              <TbShovel size={iconSize} className={styles.navbar_icons_hover} />
-            </Link>
-          </motion.span>
+
           <motion.span
             whileHover={{ scale: 1.2 }}
             onClick={() => handleThemeClick()}
@@ -177,11 +196,25 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
           </motion.span>
         </div>
       </motion.div>
+      {/** Desktop navbar */}
+
       {!isMobile && (
         <div className={styles.navbar_container_column_icons}>
           <motion.span whileHover={{ scale: 1.2 }}>
+            <Link href="/the-scoop">
+              <TbShovel
+                size={iconSize}
+                className={styles.navbar_icons_hover}
+                color={iconHighlight == "the-scoop" ? "#fa6305" : "FFFFFF"}
+              />
+            </Link>
+          </motion.span>
+          <motion.span whileHover={{ scale: 1.2 }}>
             <Link href="/notes">
-              <GiNotebook size={iconSize} />
+              <GiNotebook
+                size={iconSize}
+                color={iconHighlight == "notes" ? "#fa6305" : "FFFFFF"}
+              />
             </Link>
           </motion.span>
           <motion.span
@@ -190,11 +223,7 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
           >
             <FaCat size={iconSize} />
           </motion.span>
-          <motion.span whileHover={{ scale: 1.2 }}>
-            <Link href="/the-scoop">
-              <TbShovel size={iconSize} className={styles.navbar_icons_hover} />
-            </Link>
-          </motion.span>
+
           <motion.span
             whileHover={{ scale: 1.2 }}
             onClick={() => handleThemeClick()}
