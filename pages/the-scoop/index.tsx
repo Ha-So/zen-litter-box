@@ -20,12 +20,12 @@ export interface ScoopProps {
 const TheScoop = ({ width }: ScoopProps) => {
   const { scrollYProgress } = useScroll();
   const isMobile = width < 768;
-  const images: [string, number, number, string, string][] = [
-    [Axios, 340, 10, AxiosText, "https://www.axios.com"],
-    [Nw, 20, 40, NwText, "https://feinstein.northwell.edu/"],
-    [Postlight, 60, 90, PostlightText, "https://postlight.com/labs"],
-    [END, 80, 120, ENDText, "https://www.elnuevodia.com/"],
-    [null, 100, 140, AmayaText, "https://github.com/Ha-So/Amaya-Ko"],
+  const images: [string, number, number, string, string, boolean][] = [
+    [Axios, 340, 10, AxiosText, "https://www.axios.com", false],
+    [Nw, 20, 40, NwText, "https://feinstein.northwell.edu/", true],
+    [Postlight, 60, 90, PostlightText, "https://postlight.com/labs", false],
+    [END, 80, 120, ENDText, "https://www.elnuevodia.com/", true],
+    [null, 100, 140, AmayaText, "https://github.com/Ha-So/Amaya-Ko", false],
   ];
   return (
     <div className={noteStyles.sheet_background}>
@@ -53,17 +53,23 @@ const TheScoop = ({ width }: ScoopProps) => {
             transition={{ duration: 1.5 }}
           ></motion.div>
           <>
-            {images.map(([cardImage, hueA, hueB, cardText, linkRef], index) => (
-              <Card
-                hueA={hueA}
-                hueB={hueB}
-                cardImage={cardImage}
-                key={index}
-                cardText={cardText}
-                isMobile={width < 1000}
-                linkRef={linkRef}
-              />
-            ))}
+            {images.map(
+              (
+                [cardImage, hueA, hueB, cardText, linkRef, rightFlip],
+                index
+              ) => (
+                <Card
+                  hueA={hueA}
+                  hueB={hueB}
+                  cardImage={cardImage}
+                  key={index}
+                  cardText={cardText}
+                  isMobile={width < 1000}
+                  linkRef={linkRef}
+                  rightFlip={rightFlip}
+                />
+              )
+            )}
           </>
           <div style={{ height: 200 }} />
         </div>

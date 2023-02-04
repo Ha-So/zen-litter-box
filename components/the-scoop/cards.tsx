@@ -11,6 +11,7 @@ interface Props {
   cardText: string;
   isMobile: boolean;
   linkRef?: string;
+  rightFlip?: boolean;
 }
 
 const cardVariants: Variants = {
@@ -34,6 +35,38 @@ const cardVariants: Variants = {
     y: -100,
     rotate: 0,
     rotateY: 180,
+    opacity: 1.0,
+    transition: {
+      type: "spring",
+      bounce: 0.4,
+      duration: 0.8,
+    },
+  },
+};
+
+const cardVariantsRight: Variants = {
+  offscreen: {
+    y: 300,
+    opacity: 0.0,
+  },
+  onscreen: {
+    y: 50,
+    x: 0,
+    rotate: -10,
+
+    rotateY: 0,
+    opacity: 1.0,
+    transition: {
+      type: "spring",
+      bounce: 0.4,
+      duration: 0.8,
+    },
+  },
+  openInfo: {
+    y: -100,
+    x: 500,
+    rotate: 0,
+    rotateY: -180,
     opacity: 1.0,
     transition: {
       type: "spring",
@@ -97,6 +130,7 @@ export const Card = ({
   cardText,
   isMobile,
   linkRef,
+  rightFlip,
 }: Props) => {
   const background = `linear-gradient(306deg, ${hue(hueA)}, ${hue(hueB)})`;
   const imageSize = 100;
@@ -131,7 +165,13 @@ export const Card = ({
         <motion.div
           whileHover={{ scale: 1.1 }}
           className={style["card"]}
-          variants={!isMobile ? cardVariants : cardVariantsMobile}
+          variants={
+            !isMobile
+              ? rightFlip
+                ? cardVariantsRight
+                : cardVariants
+              : cardVariantsMobile
+          }
           onClick={() => (disableClick ? null : onClickHandle())}
         >
           {!openInfo && cardImage && (
