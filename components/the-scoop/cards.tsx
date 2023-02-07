@@ -133,7 +133,8 @@ export const Card = ({
   rightFlip,
 }: Props) => {
   const background = `linear-gradient(306deg, ${hue(hueA)}, ${hue(hueB)})`;
-  const imageSize = 100;
+  const imageHeight = 100;
+  const imageWidth = rightFlip ? 150 : 100;
   const [openInfo, setOpenInfo] = useState(false);
   const [disableClick, setDisableClick] = useState(false);
 
@@ -178,8 +179,8 @@ export const Card = ({
             <Image
               alt=""
               src={cardImage}
-              height={imageSize}
-              width={imageSize}
+              height={imageHeight}
+              width={imageWidth}
               className={style.card_image}
             />
           )}
