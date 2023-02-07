@@ -1,10 +1,8 @@
-import Head from "next/head";
-import { useEffect, useState, useLayoutEffect, useRef, use } from "react";
+import { useEffect, useState, useRef } from "react";
 import styles from "../styles/Home.module.scss";
 import IntroSecondary from "../components/home/intro-secondary";
 import IntroTertiary from "../components/home/intro-tertiary";
 import Intro from "../components/home/intro";
-import Coffee from "../components/coffee";
 import * as ga from "../lib/ga";
 
 export interface HomeProps {
@@ -33,7 +31,6 @@ export default function Home({ width }: HomeProps) {
 
   return (
     <div className={styles.sheet_background}>
-      {/* <Coffee /> */}
       <div className={styles.sheet_container}>
         <Intro
           scrollReference={introSecondary}
