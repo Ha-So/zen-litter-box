@@ -1,5 +1,5 @@
 import style from "../../styles/Cards.module.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, Variants } from "framer-motion";
 import AxiosImage from "../../public/card-images/axios.png";
 import Image from "next/image";
@@ -52,7 +52,7 @@ const cardVariantsRight: Variants = {
   onscreen: {
     y: 50,
     x: 0,
-    rotate: -10,
+    rotate: 10,
 
     rotateY: 0,
     opacity: 1.0,
@@ -84,6 +84,33 @@ const cardVariantsMobile: Variants = {
   onscreen: {
     y: 50,
     rotate: -10,
+    opacity: 1.0,
+    transition: {
+      type: "spring",
+      bounce: 0.4,
+      duration: 0.8,
+    },
+  },
+  openInfo: {
+    y: -100,
+    rotate: 0,
+    opacity: 1.0,
+    transition: {
+      type: "spring",
+      bounce: 0.4,
+      duration: 0.8,
+    },
+  },
+};
+
+const cardVariantsMobileRight: Variants = {
+  offscreen: {
+    y: 300,
+    opacity: 0.0,
+  },
+  onscreen: {
+    y: 50,
+    rotate: 10,
     opacity: 1.0,
     transition: {
       type: "spring",
@@ -137,6 +164,21 @@ export const Card = ({
   const imageWidth = rightFlip ? 150 : 100;
   const [openInfo, setOpenInfo] = useState(false);
   const [disableClick, setDisableClick] = useState(false);
+  const [cardVariantType, setCardVariantType] = useState(cardVariantsMobile);
+  const [paraVariantType, setParaVariantType] = useState(paragraphVariants);
+
+  useEffect(() => {
+    if (!isMobile) {
+      setCardVariantType(rightFlip ? cardVariantsRight : cardVariants);
+      setParaVariantType(paragraphVariants);
+    }
+    if (isMobile) {
+      setCardVariantType(
+        rightFlip ? cardVariantsMobileRight : cardVariantsMobile
+      );
+      setParaVariantType(paragraphVariantsMobile);
+    }
+  }, [isMobile, rightFlip]);
 
   const onClickHandle = () => {
     setOpenInfo(!openInfo);
@@ -166,13 +208,7 @@ export const Card = ({
         <motion.div
           whileHover={{ scale: 1.1 }}
           className={style["card"]}
-          variants={
-            !isMobile
-              ? rightFlip
-                ? cardVariantsRight
-                : cardVariants
-              : cardVariantsMobile
-          }
+          variants={cardVariantType}
           onClick={() => (disableClick ? null : onClickHandle())}
         >
           {!openInfo && cardImage && (
@@ -191,7 +227,7 @@ export const Card = ({
             <motion.p
               initial="normal"
               animate={openInfo ? "invert" : "normal"}
-              variants={isMobile ? paragraphVariantsMobile : paragraphVariants}
+              variants={paraVariantType}
               className={style.card_description}
             >
               {cardText}

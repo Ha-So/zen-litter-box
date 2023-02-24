@@ -52,6 +52,14 @@ export default function App({ Component, pageProps }: AppProps) {
     };
   }, [router.events]);
 
+  // Hide splash screen shen we are server side
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const loader = document.getElementById("globalLoader");
+      if (loader) loader.style.display = "none";
+    }
+  }, []);
+
   return (
     <div data-theme={theme}>
       <Head>
@@ -59,7 +67,19 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="description" content="My digital garden" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap"
+          rel="preload"
+          as="style"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap"
+          rel="stylesheet"
+          crossOrigin="anonymous"
+        />
       </Head>
+
       <Navbar width={width} setTheme={updateTheme} theme={theme} />
       <Component
         {...pageProps}
