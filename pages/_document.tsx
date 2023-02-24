@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
+import loader from "../values/loader.js";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: any) {
@@ -12,7 +13,6 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          {" "}
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           <script
             async
@@ -30,8 +30,27 @@ class MyDocument extends Document {
           `,
             }}
           />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap"
+            rel="preload"
+            as="style"
+            crossOrigin="anonymous"
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap"
+            rel="stylesheet"
+            crossOrigin="anonymous"
+          />
+          <style>{loader}</style>
         </Head>
         <body>
+          <div id={"globalLoader"}>
+            <div className="loader">
+              <div />
+              <div />
+            </div>
+          </div>
+
           <Main />
           <NextScript />
         </body>
