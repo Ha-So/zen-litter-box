@@ -3,14 +3,15 @@ import db from "../../utils/db";
 import { useScroll, motion } from "framer-motion";
 import styles from "../../styles/Notes.module.scss";
 import { MDXProvider } from "@mdx-js/react";
-import About from "../../files/about-this-garden/about-this-garden.mdx";
-import Magic from "../../files/magic-of-markdown/magic-of-markdown.mdx";
 import Footer from "../../components/footer";
+import React, { Suspense } from "react";
+import notes from "../../files/index";
 
 const Post = (props) => {
   const { entry } = props;
   const router = useRouter();
   const { scrollYProgress } = useScroll();
+  const Blog = notes[String(entry?.slug).replace(/-/g, "")];
 
   if (router.isFallback) {
     return <div>loading</div>;
@@ -26,9 +27,14 @@ const Post = (props) => {
               />
               <div className={styles.sheet_body_mdx}>
                 {/* <Markdown>{postContent}</Markdown> */}
-                <MDXProvider>
-                  {entry?.slug == "about-this-garden" ? <About /> : <Magic />}
-                </MDXProvider>
+                <Suspense fallback={<div>Hi, This page is Loading...</div>}>
+                  <section>
+                    <MDXProvider>
+                      <Blog />
+                    </MDXProvider>
+                  </section>
+                </Suspense>
+                {/* {entry?.slug == "about-this-garden" ? <About /> : <Magic />} */}
                 {/* <h2>{entry.title}</h2>
                   <p>{entry.body}</p>
                   <a href={entry.id}>{entry.id}</a>

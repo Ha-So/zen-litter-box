@@ -7,14 +7,14 @@ export default function Magic() {
   return (
     <article>
       <div>
-        <h2 className={styles.md_header}>The Magic of Markdown</h2>
+        <h2 className={styles.md_header}>magic of markdown</h2>
         <p>
           I thought "you know what would be neat, if I stored MDX files in my
           firestore database and dynamically pulled them for each page." Sounds
           simple right? I struggled more than I care to admit on this one. That
           said, you are currently reading this from an mdx file! 😅
         </p>
-        <h2>Problem</h2>
+        <h2>problem</h2>
         <br />
         <CopyBlock
           text={code["npmError"]}
@@ -30,7 +30,7 @@ export default function Magic() {
           the webpack loader neccesary to convert the mdx files to an output in
           JavaScript.
         </p>
-        <h2>Solution</h2>
+        <h2>solution</h2>
         <p>
           After researching through all kinds of solutions, the answer was in
           the Next.js docs all along. Who would have thought?
