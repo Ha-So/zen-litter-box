@@ -75,7 +75,7 @@ export default function Sheet({
                   .pauseFor(500)
                   .changeDelay(30)
                   .typeString(
-                    " A collection of thoughts and things I learned that should be shared."
+                    " A collection of thoughts and web dev features no one asked for."
                   )
                   .typeString(
                     "<br />A digital garden. Feel free to dig around."

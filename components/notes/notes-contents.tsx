@@ -8,6 +8,7 @@ export interface NotesContentsProps {
   entriesData: Array<any>;
 }
 function NotesContents({ entriesData }: NotesContentsProps) {
+  console.log(entriesData);
   return (
     <div className={styles.sheet_body}>
       <motion.h2

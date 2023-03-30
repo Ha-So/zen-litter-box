@@ -116,7 +116,7 @@ export default function Navbar({ width, theme, setTheme }: NavbarProps) {
           transition={{ scale: { type: "spring", stiffness: 500 } }}
           className={styles.navbar_container_column_title}
         >
-          Zen Litter Box
+          zen litter box
         </motion.h2>
       </Link>
       <motion.div

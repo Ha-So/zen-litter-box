@@ -35,7 +35,7 @@ export default function IntroSecondary({
     <div className={styles.sheet_body}>
       <div className={styles.intro_secondary_container}>
         <h2 className={styles.intro_secondary_container_title} ref={reference}>
-          What is a digital garden?
+          what is a digital garden?
         </h2>
         <div className={styles.intro_secondary_container_quote} ref={ref}>
           <hr className={styles.intro_secondary_container_quote_line} />
